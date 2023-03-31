@@ -1,0 +1,91 @@
+<div class="overview-container">
+
+    <div class="activity-container">
+
+        <div class="chart">
+
+            <div class="dropdown-area">
+
+                <div>
+                    <p-dropdown [options]="performances" [(ngModel)]="selectedOne" (onChange)="setPeriod()"></p-dropdown>
+                </div>
+
+                <div>
+                    <p-dropdown [options]="selectedPeriod"></p-dropdown>
+                    
+                </div>
+
+            </div>
+
+            <p-chart type="bar" [data]="selectedChartData" [width]="chartWidth" [responsive]="false" [height]="chartHeight" [options]="chartOptions"></p-chart>
+
+        </div>
+
+        <div class="details-container">
+
+            <div class="details-container-title">{{title}}</div>
+
+            <div class="dropdown-area">
+
+                <p-dropdown [options]="performances"></p-dropdown>
+                
+            </div>
+
+            <div class="template-area">
+
+                <ng-container *ngTemplateOutlet="details1; context: {'detailContent': detailContent}"></ng-container>
+
+            </div>   
+
+        </div>
+
+    </div>
+
+    <div class="performace-container">
+
+        <div class="performace-title-area">
+
+            <div class="performace-title"> Performace</div>
+
+            <div class="dropdown-area">
+
+                <p-dropdown [options]="performances"></p-dropdown>
+                
+            </div>
+            
+        </div>
+
+        <div class="performace-content">
+
+            <ng-container *ngTemplateOutlet="details2; context: {'detailContentPerformances': detailContentPerformances}"></ng-container>
+
+        </div>
+
+      
+    </div>
+
+</div>
+
+<ng-template #details1 let-detailContent="detailContent" >
+
+    <div class="details-content" *ngFor="let detailContents of detailContent">
+
+        <div class="title">{{detailContents.title}}</div>
+
+        <div class="count">{{detailContents.count}}</div>
+
+    </div>
+
+</ng-template>
+
+<ng-template #details2 let-detailContentPerformances = "detailContentPerformances" >
+
+    <div class="details-content" *ngFor="let detailContents of detailContentPerformances">
+
+        <div class="title">{{detailContents.title}}</div>
+
+        <div class="count">{{detailContents.count}}</div>
+
+    </div>
+
+</ng-template>

@@ -12,15 +12,16 @@
   
       <div class="client-area">
   
-        <!-- <app-enter-screen *ngIf="currentMainView === _MainViews.enterScreen"></app-enter-screen>
+       <app-overview *ngIf="currentMainView === _MainViews.overview"></app-overview>
   
-        <app-dashboard *ngIf="currentMainView === _MainViews.dashboard"></app-dashboard>
+        <app-auctions *ngIf="currentMainView === _MainViews.auctions || currentMainView === _SubViews.act_all"></app-auctions>
+        <app-auction-add-new *ngIf="currentMainView === _SubViews.act_add_new"></app-auction-add-new>
   
-        <app-user-profile *ngIf="currentMainView === _MainViews.userProfile"></app-user-profile>
+        <!-- <app-user-profile *ngIf="currentMainView === _MainViews.userProfile"></app-user-profile> -->
   
-        <app-key-locker *ngIf="currentMainView === _MainViews.keyLocker"></app-key-locker>
+        <!-- <app-key-locker *ngIf="currentMainView === _MainViews.keyLocker"></app-key-locker> -->
   
-        <app-settings *ngIf="currentMainView === _MainViews.settings"></app-settings> -->
+        <!-- <app-settings *ngIf="currentMainView === _MainViews.settings"></app-settings>  -->
   
       </div>
   

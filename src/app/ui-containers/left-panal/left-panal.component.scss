@@ -38,6 +38,20 @@
 
     }
 
+    .main-btn-options {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        color: #727272;
+        cursor: pointer;
+
+        .option-btn {
+            margin-bottom: 20px;
+        }
+    }
+
     .main-btns, .main-btns > label:hover {
         cursor: pointer;
     }
@@ -49,6 +63,10 @@
             color: #FFFFFF !important;
 
         }
+    }
+
+    .opt-btn-select {
+        color: #4A8998;
     }
 
     .fixed-area {
