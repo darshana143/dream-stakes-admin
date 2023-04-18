@@ -1,1 +1,118 @@
-<p>auction-add-new works!</p>
+<div class="add-new-container">
+
+    <div class="main-title">Auctions > Add New</div>
+
+    <div class="title-area">
+
+        <div class="title">Title</div>
+
+        <input type="text" pInputText placeholder="Type Here">  
+        
+    </div>
+
+    <div class="description-area">
+
+        <div class="title">Add Description</div>
+
+        <p-editor [(ngModel)]="text" [style]="{'height':'252px'}"></p-editor>
+
+    </div>
+
+    <div class="contract-area">
+
+        <div class="title">Add Contract</div>
+        
+        <p-editor [(ngModel)]="text2" [style]="{'height':'252px'}"></p-editor>
+
+    </div>
+
+    <div class="selection-area">
+
+        <div class="category">
+
+            <div class="title">Category</div>
+
+            <p-dropdown [options]="auction"></p-dropdown>
+
+        </div>
+
+        <div class="bidding-rooms">
+
+            <div class="title">Bidding Rooms</div>
+
+            <input type="number" pInputText placeholder="1"> 
+
+        </div>
+
+        <div class="starting-bid">
+
+            <div class="title">Starting Bid</div>
+
+            <div class="amount">
+
+                <img src="../../../assets/$.png" >
+
+                <input type="number" pInputText placeholder="Enter amount"> 
+
+            </div>
+
+           
+
+        </div>
+
+        <div class="entrants">
+
+            <div class="entrants-title-area">
+
+                <div class="title">Entrants</div>
+
+                <img src="../../../assets/icons_info 2.png">
+
+            </div>
+
+            <input type="text" pInputText placeholder="Enter entrants">
+
+        </div>
+
+        <div class="t-allowance">
+
+            <div class="title">Add Token Allowance</div>
+
+            <input type="number" pInputText placeholder="Enter amount"> 
+
+        </div>
+
+    </div>
+    
+    <div class="upload-area">
+
+        <div class="container">
+
+            <div class="upload-btn">
+
+                <input type="file" accept="image/*" id="upload" hidden/>
+                <label for="upload"><img src="../../../assets/img-icon.png"></label>                                                          
+                
+            </div>
+
+            <div class="text-area">
+                <div class="text1">Upload Cover Image (19:6)</div>
+                <div class="text2">Drop your file here or browse</div>
+            </div>
+
+
+        </div>
+        
+
+        
+    </div>
+
+    <div class="btn-area">
+
+        <button type="button" style="background-color: #4A8998;">Publish</button>
+
+        <button type="button" style="color: #4A8998;">Save Draft</button>
+
+    </div>
+
+</div>

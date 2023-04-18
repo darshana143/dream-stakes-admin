@@ -1,0 +1,33 @@
+<div class="winners-container">
+
+    <div class="title-area">
+
+        <div class="title">Auctions > Winners</div>
+
+        <div class="downloader">
+
+            <img src="./assets/download-icon.png">
+
+            <label>Download .xlsx</label>
+        </div>
+
+    </div>
+
+    <div class="table-area">
+
+        <div class="common-ag-grid-styles" style="width: 100%; height: 100%;">
+                    
+            <ag-grid-angular #agGrid 
+                style="width: 100%; height: 100%; font-size: 12px;" 
+                class="ag-theme-alpine"
+                [columnDefs]="activeColumnDefs"
+                [rowData]="activeRowData"
+                [suppressRowClickSelection]="true"
+                
+            >
+            </ag-grid-angular> 
+
+        </div>
+    </div>
+
+</div>

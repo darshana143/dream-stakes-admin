@@ -12,7 +12,8 @@ export class AuctionsComponent implements OnInit {
 
   @ViewChild('agGrid', { static: true }) agGrid: AgGridAngular;
 
-  selectedIndex;
+  // selectedIndex;
+  rowSelection;
   gridFiletr = IGridFilter;
   filteredData;
   filteredDataCount = {
@@ -34,6 +35,7 @@ export class AuctionsComponent implements OnInit {
       resizable: true,
       headerCheckboxSelection: true,
       checkboxSelection: true,
+      
     },
     {  
       headerName: 'Name',
@@ -47,6 +49,7 @@ export class AuctionsComponent implements OnInit {
       field: 'Status',
       width: 346,
       resizable: true,
+      cellRenderer: this.statusRenderer
       
     },
     {  
@@ -63,147 +66,173 @@ export class AuctionsComponent implements OnInit {
       resizable: true,
       
     }
+    
+    
   
   ];
+  
 
   activeRowData = [
-    {
+    { 
+      Id:1,
       Name: 'Marketing Cleanup',
       Status: 'Unpublish',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 30, 2019 05:18'
     },
-    {
+    { 
+      Id:2,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 30, 2019 06:55'
     },
-    {
+    { 
+      Id:3,
       Name: 'Marketing Cleanup',
       Status: 'Draft',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Feb 2, 2019 19:28'
     },
-    {
+    { 
+      Id:4,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Mar 20, 2019 23:14'
     },
-    {
+    { 
+      Id:5,
       Name: 'Marketing Cleanup',
       Status: 'Unpublish',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
-    {
+    { 
+      Id:6,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Feb 2, 2019 19:28'
     },
-    {
+    { 
+      Id:7,
       Name: 'Marketing Cleanup',
       Status: 'Draft',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 30, 2019 05:18'
     },
-    {
+    { 
+      Id:81,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Mar 20, 2019 23:14'
     },
-    {
+    { 
+      Id:9,
       Name: 'Marketing Cleanup',
       Status: 'Draft',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
     {
+      Id:10,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Feb 2, 2019 19:28'
     },
-    {
+    { 
+      Id:11,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 30, 2019 05:18'
     },
-    {
+    { 
+      Id:12,
       Name: 'Marketing Cleanup',
       Status: 'Unpublish',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
     {
+      Id:13,
       Name: 'Marketing Cleanup',
       Status: 'Unpublish',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
     {
+      Id:14,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Mar 20, 2019 23:14'
     },
     {
+      Id:15,
       Name: 'Marketing Cleanup',
       Status: 'Draft',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 30, 2019 05:18'
     },
     {
+      Id:16,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 4, 2019 03:34'
     },
     {
+      Id:17,
       Name: 'Marketing Cleanup',
       Status: 'Unpublish',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
     {
+      Id:18,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Single Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Mar 20, 2019 23:14'
     },
     {
+      Id:19,
       Name: 'Marketing Cleanup',
       Status: 'Draft',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
     {
+      Id:20,
       Name: 'Marketing Cleanup',
       Status: 'Active',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Feb 2, 2019 19:28'
     },
     {
+      Id:21,
       Name: 'Marketing Cleanup',
       Status: 'Trash',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Mar 20, 2019 23:14'
     },
     {
+      Id:22,
       Name: 'Marketing Cleanup',
       Status: 'Trash',
       Categories: 'Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Dec 7, 2019 23:26'
     },
     {
+      Id:23,
       Name: 'Marketing Cleanup',
       Status: 'Trash',
       Categories: '100%Duplex Auction house',
-      SubmittedOn: '28:36:17'
+      SubmittedOn: 'Feb 2, 2019 19:28'
     }
     
   ];
@@ -239,7 +268,10 @@ export class AuctionsComponent implements OnInit {
     }
   ]
 
-  constructor(private elem: ElementRef) { }
+  constructor(private elem: ElementRef) { 
+
+    this.rowSelection = 'multiple';
+  }
 
   ngOnInit(): void {
 
@@ -256,11 +288,11 @@ export class AuctionsComponent implements OnInit {
   }
 
   
-  onChange($event) {
+  // onChange($event) {
 
-    this.selectedIndex = $event.index;
+  //   this.selectedIndex = $event.index;
 
-  }
+  // }
 
   onAuctionSelect(params){
     alert("clicked")
@@ -309,5 +341,46 @@ export class AuctionsComponent implements OnInit {
 
   }
 
+  statusRenderer(params:any){
+
+    let status = params.data.Status
+ 
+    var ui = document.createElement('div');
+
+    switch (status) {
+
+      case "Unpublish":
+        ui.style.color = '#EE212E';
+      break;
+
+      case "Active":
+        ui.style.color = '#64C8BC';
+      break;
+
+      case "Trash":
+        ui.style.color = '#616161';
+      break;
+        
+      default:
+        ui.style.color = '#6554C0';
+      break;
+
+    }
+
+    ui.innerHTML =
+      `
+        <div style=" text-align: center;">${status}</div>
+        
+      `;
+
+    return ui;
+
+  }
+
+  onRowSelected(params) {
+
+    var x = params.api.getSelectedRows();
+    console.log(x)
+  }
 
 }

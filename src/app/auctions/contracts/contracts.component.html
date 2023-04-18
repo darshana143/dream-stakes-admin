@@ -1,0 +1,54 @@
+<div class="contractors-container">
+
+    <div class="title-area">
+
+        <div class="title">Auctions > {{filterTitle}} Auctions</div>
+        <div></div>
+
+    </div>
+
+    <div class="new-contract">
+        <button type="button">+ New Contract</button>
+    </div>
+
+    <div class="contractors-content">
+
+        <div class="tab-area">
+
+            <div [id]="gridFiletr.all" class="filters select" style="width: 135px;" (click)="gridFilter(gridFiletr.all)">All ({{filteredDataCount.all}})</div>
+            <div [id]="gridFiletr.active" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.active)">Active ({{filteredDataCount.active}})</div>
+            <div [id]="gridFiletr.unpublished" class="filters" (click)="gridFilter(gridFiletr.unpublished)">Unpublished ({{filteredDataCount.unpublished}})</div>
+            <div [id]="gridFiletr.draft" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.draft)">Draft ({{filteredDataCount.draft}})</div>
+            <div [id]="gridFiletr.trash" class="filters" style="width: 150px; border-right: unset;" (click)="gridFilter(gridFiletr.trash)">Trash ({{filteredDataCount.trash}})</div>
+
+        </div>
+
+        <div class="dropdownbtn-area">
+            <p-dropdown [options]="bulkActions"></p-dropdown>
+
+            <button type="button">Apply</button>
+        </div>
+        
+    </div>
+
+    <div class="table-area">
+
+        <div class="common-ag-grid-styles" style="width: 100%; height: 100%;">
+                    
+            <ag-grid-angular #agGrid 
+                style="width: 100%; height: 100%; font-size: 12px;" 
+                class="ag-theme-alpine"
+                [rowData]="filteredData"
+                [columnDefs]="activeColumnDefs"
+                [suppressRowClickSelection]="true"
+                [rowSelection]="rowSelection"
+                (rowSelected)="onRowSelected($event)"
+            >
+            </ag-grid-angular>
+
+        </div>
+
+    </div>
+
+
+</div>

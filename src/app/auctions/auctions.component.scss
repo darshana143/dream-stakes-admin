@@ -42,19 +42,20 @@
             flex-direction: row;
             height: 100%;
             width: 100%;
-            padding-left: 40px;
             
 
             div{
 
                 width: 213px;
+                height: 26px;
                 font-family: Open Sans;
                 font-weight: 600;
                 font-size: 18px;
                 line-height: 26px;
                 color: #2C2C2C;
-                padding-top: 3px;
                 cursor: pointer;
+                text-align: center;
+                border-right: 1px solid #4A8998;
             }
 
             .select {
@@ -77,6 +78,7 @@
                 color: #FFFFFF;
                 background-color: #4A8998;
                 margin-left: 15px;
+                border: none;
             }
 
         }

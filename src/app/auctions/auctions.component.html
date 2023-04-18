@@ -11,11 +11,11 @@
 
         <div class="tab-area">
 
-            <div [id]="gridFiletr.all" class="filters select" (click)="gridFilter(gridFiletr.all)">All ({{filteredDataCount.all}})</div>
-            <div [id]="gridFiletr.active" class="filters" (click)="gridFilter(gridFiletr.active)">Active ({{filteredDataCount.active}})</div>
+            <div [id]="gridFiletr.all" class="filters select" style="width: 135px;" (click)="gridFilter(gridFiletr.all)">All ({{filteredDataCount.all}})</div>
+            <div [id]="gridFiletr.active" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.active)">Active ({{filteredDataCount.active}})</div>
             <div [id]="gridFiletr.unpublished" class="filters" (click)="gridFilter(gridFiletr.unpublished)">Unpublished ({{filteredDataCount.unpublished}})</div>
-            <div [id]="gridFiletr.draft" class="filters" (click)="gridFilter(gridFiletr.draft)">Draft ({{filteredDataCount.draft}})</div>
-            <div [id]="gridFiletr.trash" class="filters" (click)="gridFilter(gridFiletr.trash)">Trash ({{filteredDataCount.trash}})</div>
+            <div [id]="gridFiletr.draft" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.draft)">Draft ({{filteredDataCount.draft}})</div>
+            <div [id]="gridFiletr.trash" class="filters" style="width: 150px; border-right: unset;" (click)="gridFilter(gridFiletr.trash)">Trash ({{filteredDataCount.trash}})</div>
 
         </div>
 
@@ -36,6 +36,9 @@
                 class="ag-theme-alpine"
                 [rowData]="filteredData"
                 [columnDefs]="activeColumnDefs"
+                [suppressRowClickSelection]="true"
+                [rowSelection]="rowSelection"
+                (rowSelected)="onRowSelected($event)"
             >
             </ag-grid-angular>
 

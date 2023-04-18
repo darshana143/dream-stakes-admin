@@ -4,8 +4,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins');
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Karla');
 @import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
 @import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
 
 html,
 body {
@@ -93,5 +95,33 @@ body {
     
 
     }
+
+    .add-new-container{
+
+        .ui-dropdown{
+
+            height: 44px;
+            width: 242px;
+            align-items: center;
+            border-radius: 8px;
+            
+
+        }
+
+        .ui-dropdown .ui-dropdown-label{
+
+            font-family:  Karla;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+           
+            
+        }
+
+
+    }
+
+    
 
 }
