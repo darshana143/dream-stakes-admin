@@ -50,7 +50,7 @@
 
             <div class="amount">
 
-                <img src="../../../assets/$.png" >
+                <img src=".././assets/$.png" >
 
                 <input type="number" pInputText placeholder="Enter amount"> 
 
@@ -66,7 +66,7 @@
 
                 <div class="title">Entrants</div>
 
-                <img src="../../../assets/icons_info 2.png">
+                <img src=".././assets/icons_info 2.png">
 
             </div>
 
@@ -90,16 +90,19 @@
 
             <div class="upload-btn">
 
-                <input type="file" accept="image/*" id="upload" hidden/>
-                <label for="upload"><img src="../../../assets/img-icon.png"></label>                                                          
-                
-            </div>
+                <label for="upload"><img [src]="image"/></label>
 
-            <div class="text-area">
-                <div class="text1">Upload Cover Image (19:6)</div>
-                <div class="text2">Drop your file here or browse</div>
+                <input
+                type="file"
+                (change)="updateImage($event)"
+                style="display: none"
+                accept="image/*"
+                id="upload"
+                hidden
+                #selectImage
+                />                                                          
+                                
             </div>
-
 
         </div>
         

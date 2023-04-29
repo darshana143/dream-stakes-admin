@@ -40,6 +40,30 @@
             <img [src]="usersBtn">
             <label>Users</label>
         </div>
+
+        <div class="main-btn-options" *ngIf="showUsersOptions">
+            
+            <div id="14" class="option-btn" (click)="userChangeView(_MainViews.users, _SubViews.user_analytics)">
+                User Analytics
+            </div>
+
+            <div id="15" class="option-btn" (click)="userChangeView(_MainViews.users, _SubViews.all_users)">
+                All Users
+            </div>
+
+            <div  id="16" class="option-btn" (click)="userChangeView(_MainViews.users, _SubViews.usr_add_new)">
+                Add New
+            </div>
+
+            <div  id="17" class="option-btn" (click)="userChangeView(_MainViews.users, _SubViews.user_profile)">
+                Profile
+            </div>
+
+            <div  id="18" class="option-btn opt-btn-select" (click)="userChangeView(_MainViews.users, _SubViews.user_management)">
+                User Management
+            </div>
+
+        </div>
     
         <div  id="3" class="main-btns" (click)="userChangeView(_MainViews.message)">
             <img [src]="messageBtn">

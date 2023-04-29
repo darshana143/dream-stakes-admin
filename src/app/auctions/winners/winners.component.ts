@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegularGridPopupComponent } from 'src/app/ds-components/ag-grid/regular-popup/regular-popup.component';
 
 @Component({
   selector: 'app-winners',
@@ -12,7 +13,7 @@ export class WinnersComponent implements OnInit {
     {  
       headerName: 'Client ID',
       field: 'clientID',
-      width: 200,
+      width: 150,
       resizable: true,
       
     },
@@ -41,7 +42,7 @@ export class WinnersComponent implements OnInit {
     {  
       headerName: 'Winner Name',
       field: 'winnerName',
-      width: 300,
+      width: 400,
       resizable: true,
       cellRenderer: this.nameRenderer
       
@@ -49,8 +50,17 @@ export class WinnersComponent implements OnInit {
     {  
       headerName: 'Open Portal',
       field: 'openPortal',
-      width: 300,
+      width: 200,
       resizable: true,
+      cellRenderer: this.openPortalRenderer
+      
+    },
+    {  
+      headerName: '',
+      field: 'action',
+      width: 50,
+      resizable: true,
+      cellRendererFramework: RegularGridPopupComponent,
       
     }
      
@@ -371,6 +381,42 @@ export class WinnersComponent implements OnInit {
       `;
 
     return ui;
+
+  }
+
+  openPortalRenderer(params:any){
+
+    let openPortal = params.data.openPortal
+ 
+    var ui = document.createElement('div');
+
+    ui.style.color = '#F9A369';
+
+    ui.innerHTML =
+      `
+        <div style=" text-align: center;">${openPortal}</div>
+        
+      `;
+
+    return ui;
+
+  }
+
+  onCellClicked(params) {
+
+    if (params.event.target.dataset.action == 'toggle' && params.column.getColId() == 'action') {
+
+      const cellRendererInstances = params.api.getCellRendererInstances({
+        rowNodes: [params.node],
+        columns: [params.column],
+      });
+
+      if (cellRendererInstances.length > 0) {
+        const instance = cellRendererInstances[0].getFrameworkComponentInstance();
+        instance.togglePopup();
+      }
+
+    }
 
   }
 

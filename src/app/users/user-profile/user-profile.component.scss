@@ -1,0 +1,270 @@
+.user-profile-container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 40px 41px 0px 40px;
+
+    .top-container{
+       
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 98px;
+
+        .input-area{
+
+           
+            width: 50%;
+            height: 100%;
+            padding-left: 40px;
+
+            .title-area{
+
+                width: 100%;
+                margin-bottom: 33px;
+                
+
+        
+                .title{
+        
+                    font-family: Open Sans;
+                    font-weight: 600;
+                    font-size: 24px;
+                    line-height: 34px;
+                    color: #2C2C2C;
+                    margin-bottom: 16px;
+        
+                }
+
+                .sub-text{
+
+                    font-family: Open Sans;
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 20px;
+                    color: #444B5C;
+            
+                }
+        
+            }
+
+
+            .inputswitch-area{
+
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                height: 22px;
+                margin-bottom: 34px;
+
+                .text{
+
+                    font-family: Open Sans;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color:#DFA93C;;
+                    margin-right: 6px;
+
+
+                }
+
+                img{
+                    margin-right: 37px;
+                }
+            }
+
+            .username{
+
+                .input-text{
+
+                    margin-top: 13px;
+
+                }
+            }
+
+
+            .input-title{
+
+                font-family: Open Sans;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 22px;
+                color:rgba(63, 63, 68, 1);
+                margin-bottom: 13px;
+
+
+            }
+
+            input{
+
+                height: 40px;
+                width: 423px;
+                padding-left: 16px ;
+                margin-bottom: 34px;
+                border: none;
+            }
+
+            label{
+                
+                color: rgba(63, 63, 68, 0.3);
+                padding-left: 16px ;
+                
+            }
+
+
+        }
+
+        .details-area{
+
+            width: 50%;
+            height: 100%;
+            margin-left: 122px;
+
+            .dropdown-area{
+
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 47px;
+
+                img{
+                    margin-right: 121px;
+                }
+
+                p-dropdown{
+
+                    display: flex;
+                    align-items: flex-end;
+    
+                }
+            }
+
+
+        }
+    }
+
+    .bottom-container{
+        
+        width: 100%;
+        flex-grow: 1;
+        padding-left: 40px;
+
+        .account-management{
+
+          margin-bottom: 21px;
+
+
+        }
+
+        .notifications{
+
+            margin-bottom: 70px;
+
+
+        }
+
+        .links{
+
+            font-family: Open Sans;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 20px;
+            color:#4A8998;
+            cursor: pointer;
+            margin-bottom: 22px;
+            
+
+
+        }
+    }
+
+    .sub-title{
+
+        font-family: Open Sans;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        color: rgba(44, 44, 44, 1);
+        margin-bottom: 29px;
+    }
+
+    .input-text{
+
+                
+        font-family: Poppins;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 21px;
+        color: #878FA7;;
+        margin-bottom: 34px;
+
+    }
+
+    .account-details-container,.address-container{
+
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .address-container{
+
+        .labels{
+
+            div{
+
+                margin-right: 150px;
+                width: 72px;
+
+            }
+        }
+    }
+
+    
+
+    .labels{
+
+            
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #4A8998;
+
+        div{
+
+            width: 148px;
+            height: 24px;
+            margin-bottom: 10px;
+            margin-right: 65px;
+
+        }
+       
+
+    }
+
+    .details{
+
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #3F3F44;
+
+
+        div{
+
+            height: 24px;
+            margin-bottom: 10px;
+            margin-right: 65px;
+
+        }
+
+
+
+    }
+
+}

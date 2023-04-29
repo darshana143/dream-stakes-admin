@@ -1,0 +1,15 @@
+<div>
+
+    <i #trigger class="pi pi-ellipsis-v" data-action="toggle"></i>
+  
+    <div #content *ngIf="isOpen" class="menu-container">
+
+      <div (click)="onClickHandler('create')" class="menu-item">View</div>
+      <div (click)="onClickHandler('edit')" class="menu-item">Approve</div>
+      <div (click)="onClickHandler('delete')" class="menu-item">Decline</div>
+      <div (click)="onClickHandler('delete')" class="menu-item">Schedule Meet</div>
+      <div (click)="onClickHandler('delete')" class="menu-item" style="border-bottom: none;">Send Project Board</div>
+
+    </div>
+
+</div>

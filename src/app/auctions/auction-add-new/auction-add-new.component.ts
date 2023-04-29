@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SafeUrl, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-auction-add-new',
@@ -13,8 +14,13 @@ export class AuctionAddNewComponent implements OnInit {
   text2: string;
   uploadedFiles: any[] = [];
 
+  image: string | SafeUrl = '.././assets/img-icon.png';
+
+  
+
 
   constructor(
+    private sanitizer: DomSanitizer
     
   ) { 
 
@@ -89,6 +95,12 @@ export class AuctionAddNewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  updateImage(ev) {
+    this.image = this.sanitizer.bypassSecurityTrustUrl(
+      window.URL.createObjectURL(ev.target.files[0])
+    );
   }
 
 }

@@ -1,0 +1,54 @@
+<div class="users-container">
+
+    <div class="title-area">
+
+        <div class="title">Users > User Management</div>
+
+        <div class="downloader">
+
+            <img src="./assets/download-icon.png">
+
+            <label>Download .xlsx</label>
+        </div>
+
+    </div>
+
+    <div class="sub-title">Recover / Unban Accounts</div>
+
+    <div class="users-content">
+
+        <div class="tab-area">
+
+            <div [id]="gridFiletr.Deleted" class="filters select" style="width: 135px;" (click)="gridFilter(gridFiletr.Deleted)">Deleted ({{filteredDataCount.Deleted}})</div>
+            <div [id]="gridFiletr.Banned" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.Banned)">Banned ({{filteredDataCount.Banned}})</div>
+        </div>
+
+        <div class="dropdownbtn-area">
+            <p-dropdown [options]="bulkActions"></p-dropdown>
+
+            <button type="button">Apply</button>
+        </div>
+        
+    </div>
+
+    <div class="table-area">
+
+        <div class="common-ag-grid-styles" style="width: 100%; height: 100%;">
+                    
+            <ag-grid-angular #agGrid 
+                style="width: 100%; height: 100%; font-size: 12px;" 
+                class="ag-theme-alpine"
+                [rowData]="filteredData"
+                [columnDefs]="activeColumnDefs"
+                [suppressRowClickSelection]="true"
+                [rowSelection]="rowSelection"
+                
+            >
+            </ag-grid-angular>
+
+        </div>
+
+    </div>
+
+</div>
+

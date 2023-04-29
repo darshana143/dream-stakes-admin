@@ -1,0 +1,101 @@
+<div class="add-new-users-container">
+
+    <div class="title-area">
+
+        <div class="title"> Users > Add New </div>
+
+    </div>
+
+    <div class="sub-title">Create a new user </div>
+
+    <div class="add-new-users-content">
+
+        <div class="input-area">
+
+            <div class="input-titles">
+
+                <div class="username">Username (required)</div>
+
+                <div class="email">Email (required)</div>
+
+                <div class="first-name">First Name</div>
+
+                <div class="last-name">Last Name</div>
+
+                <div class="password">Password</div>
+
+					
+            </div>
+
+            <div class="inputs">
+
+                <input type="text" size="30" pInputText>
+                
+                <input type="text" size="30" pInputText>
+
+                <input type="text" size="30" pInputText>
+
+                <input type="text" size="30" pInputText>
+
+                <div class="ui-inputgroup">
+
+                    <input type="password" #pwd pInputText name="userPassword" />
+        
+                    <span class="ui-inputgroup-addon"><i class="pi pi-eye-slash" (click)="showPassword()" #icon></i></span>  
+         
+                </div>
+
+            </div>
+
+            <div class="button">
+
+                <button>Generate Password</button>
+
+            </div>
+
+        </div>
+
+        <div class="bottom-area">
+
+            <div class="input-area2">
+                
+                <div class="input-titles">
+
+                    <div class="send-user-notification">Send User Notification</div>
+    
+                    <div class="email">Role</div>
+                </div>
+
+                <div class="inputs">
+    
+                    <div class="checkbox-area">
+    
+                        <p-checkbox></p-checkbox>
+    
+                        <div>Send the new user an email about their account.</div>
+    
+                    </div>
+    
+                    <div class="dropdown-area">
+    
+                        <p-dropdown [options]="roles"></p-dropdown>
+    
+                    </div>
+    
+                   
+                </div>
+
+            </div>
+
+            <div>
+
+                <button>Add New User</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

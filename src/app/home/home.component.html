@@ -12,18 +12,18 @@
   
       <div class="client-area">
   
-       <app-overview *ngIf="currentMainView === _MainViews.overview"></app-overview>
+        <app-overview *ngIf="currentMainView === _MainViews.overview"></app-overview>
   
         <app-auctions *ngIf="currentMainView === _MainViews.auctions || currentMainView === _SubViews.act_all"></app-auctions>
         <app-auction-add-new *ngIf="currentMainView === _SubViews.act_add_new"></app-auction-add-new>
         <app-contracts *ngIf="currentMainView === _SubViews.act_contracts"></app-contracts>
         <app-winners *ngIf="currentMainView === _SubViews.act_winners"></app-winners>
   
-        <!-- <app-user-profile *ngIf="currentMainView === _MainViews.userProfile"></app-user-profile> -->
-  
-        <!-- <app-key-locker *ngIf="currentMainView === _MainViews.keyLocker"></app-key-locker> -->
-  
-        <!-- <app-settings *ngIf="currentMainView === _MainViews.settings"></app-settings>  -->
+        <app-users *ngIf="currentMainView === _MainViews.users || currentMainView === _SubViews.user_management"></app-users>
+        <app-user-analytics *ngIf="currentMainView === _SubViews.user_analytics"></app-user-analytics>
+        <app-all-users *ngIf="currentMainView === _SubViews.all_users"></app-all-users>
+        <app-add-new-users *ngIf="currentMainView === _SubViews.usr_add_new"></app-add-new-users>
+        <app-user-profile *ngIf="currentMainView === _SubViews.user_profile"></app-user-profile>
   
       </div>
   

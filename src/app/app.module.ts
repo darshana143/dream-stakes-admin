@@ -17,20 +17,20 @@ import { AuctionAddNewComponent } from './auctions/auction-add-new/auction-add-n
 import { ContractsComponent } from './auctions/contracts/contracts.component';
 import { WinnersComponent } from './auctions/winners/winners.component';
 
+import { UsersComponent } from './users/users.component';
+import { UserAnalyticsComponent } from './users/user-analytics/user-analytics.component';
+import { AllUsersComponent } from './users/all-users/all-users.component';
+import { AddNewUsersComponent } from './users/add-new-users/add-new-users.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
+
 // ------------------------- PrimeNG -----------------------------
 import {InputTextModule} from 'primeng/inputtext';
 import {ChartModule} from 'primeng/chart';
 import { DropdownModule } from 'primeng/dropdown';
 import { TabViewModule } from "primeng/tabview";
 import {EditorModule} from 'primeng/editor';
-
-
-
-
-
-
-
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputSwitchModule } from 'primeng/inputswitch';
 
 
 @NgModule({
@@ -43,7 +43,12 @@ import {EditorModule} from 'primeng/editor';
     AuctionsComponent,
     AuctionAddNewComponent,
     ContractsComponent,
-    WinnersComponent
+    WinnersComponent,
+    UsersComponent,
+    UserAnalyticsComponent,
+    AllUsersComponent,
+    AddNewUsersComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,9 @@ import {EditorModule} from 'primeng/editor';
     TabViewModule,
     AgGridModule,
     DsComponentsModule,
-    EditorModule
+    EditorModule,
+    CheckboxModule,
+    InputSwitchModule
     
   ],
   providers: [],

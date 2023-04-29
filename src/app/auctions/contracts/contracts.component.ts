@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
+import { RegularGridPopupComponent } from 'src/app/ds-components/ag-grid/regular-popup/regular-popup.component';
 import { IGridFilter } from '../../app.types';
 
 @Component({
@@ -57,9 +58,16 @@ export class ContractsComponent implements OnInit {
     {  
       headerName: 'Submitted on',
       field: 'SubmittedOn',
-      width: 350,
+      width: 250,
       resizable: true,
       
+    },
+    {
+      headerName: '',
+      field: 'action',
+      width: 50,
+      resizable: true,
+      cellRendererFramework: RegularGridPopupComponent,
     }
     
     
@@ -268,6 +276,24 @@ export class ContractsComponent implements OnInit {
 
     var x = params.api.getSelectedRows();
     console.log(x)
+  }
+
+  onCellClicked(params) {
+
+    if (params.event.target.dataset.action == 'toggle' && params.column.getColId() == 'action') {
+
+      const cellRendererInstances = params.api.getCellRendererInstances({
+        rowNodes: [params.node],
+        columns: [params.column],
+      });
+
+      if (cellRendererInstances.length > 0) {
+        const instance = cellRendererInstances[0].getFrameworkComponentInstance();
+        instance.togglePopup();
+      }
+
+    }
+
   }
 
 }

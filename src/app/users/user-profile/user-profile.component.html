@@ -1,0 +1,220 @@
+<div class="user-profile-container">
+    
+    <div class="top-container">
+
+        <div class="input-area">
+
+            <div class="title-area">
+
+                <div class="title">Users > Profile </div>
+
+                <div class="sub-text">You can see all the details of related profile</div>
+                
+            </div>
+
+            <div class="sub-title">Personal Options</div>
+
+            <div class="inputswitch-area">
+
+                <div class="text">Premium</div>
+
+                <img src=".././assets/crown.png">
+
+                <p-inputSwitch></p-inputSwitch>
+
+            </div>
+
+            <div class="username">
+
+                <div class="input-title">Username </div>
+
+                <label for="username">Isura</label>
+
+                <div class="input-text">Usernames cannot be changed.</div>
+
+            </div>
+
+            <div class="emai;">
+
+                <div class="input-title">Email (required)</div>
+
+                <input id="input" type="text" size="30" pInputText>
+
+                <div class="input-text">If you change this, an email will be sent at your new address to confirm it. The new address will not become active until confirmed.</div>
+
+                
+
+            </div>
+
+            <div class="firstname">
+
+                <div class="input-title">First Name</div>
+
+                <input id="input" type="text" size="30" pInputText>
+
+            </div>
+
+            <div class="lastname">
+
+                <div class="input-title">Last Name</div>
+
+                <input id="input" type="text" size="30" pInputText>
+
+            </div>
+
+            <div class="role">
+
+                <div class="input-title">Role</div>
+
+                <p-dropdown [options]="roles"></p-dropdown>
+
+            </div>
+
+        </div>
+
+        <div class="details-area">
+
+            <div class="dropdown-area">
+
+                <img src=".././assets/profile.png">
+
+                <p-dropdown [options]="accountDetails" [(ngModel)]="selectedType" (onChange)="setRoom()"></p-dropdown>
+
+            </div>
+
+            <div class="template-area">
+                
+                <div *ngIf="selectedType.id == 1">
+                    <ng-container *ngTemplateOutlet="room; context: {'currentRoom': selectedType}"></ng-container>
+                </div>
+        
+                <div *ngIf="selectedType.id == 2">
+                    <ng-container *ngTemplateOutlet="conclude; context: {'currentRoom':selectedType}"></ng-container>
+                </div>
+
+
+            </div>
+    
+        </div>
+
+    </div>
+
+    <div class="bottom-container">
+
+        <div class="account-management">
+
+            <div class="sub-title">Account Management</div>
+
+            <div class="links">Send Password Reset</div>
+
+            <div class="input-text">Send Isura a link to reset their password. This will not change their password, nor will it force a change.</div>
+
+        </div>
+
+        <div class="notifications">
+
+            <div class="sub-title">Notifications</div>
+
+            <div class="links">Choose Sent Notification</div>
+
+            <div class="links">Choose Awards Coupons</div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<ng-template #room let-currentRoom="currentRoom">
+
+    <div class="account-details-container">
+
+        <div class="labels">
+
+            <div>Name</div>
+
+            <div>Email</div>
+
+            <div>Phone</div>
+
+            <div>Role</div>
+
+            <div>State</div>
+
+            <div>Auctions Attended</div>
+
+            <div>Auctions Won</div>
+
+            <div>Member Since</div>
+
+            <div>Spent Amount</div>
+
+        </div>
+
+        <div class="details">
+
+            <div>Isura Kumara</div>
+
+            <div>Isuracreed@gmail.com</div>
+
+            <div>+1 235 548 1549</div>
+
+            <div>Subscriber</div>
+
+            <div>LA</div>
+
+            <div>14</div>
+
+            <div>2</div>
+
+            <div>256 Days</div>
+
+            <div>$ 2485.54</div>
+
+        </div>
+
+    </div>
+
+</ng-template>
+
+<ng-template #conclude let-currentRoom="currentRoom">
+    
+
+    <div class="address-container">
+
+        <div class="labels">
+
+            <div>Country</div>
+
+            <div>Street</div>
+
+            <div>Street II</div>
+
+            <div>Role</div>
+
+            <div>State</div>
+
+            <div>Zip Code</div>
+
+
+        </div>
+
+        <div class="details">
+
+            <div>USA</div>
+
+            <div>360 E</div>
+
+            <div>2nd St</div>
+
+            <div>Subscriber</div>
+
+            <div>Los Angeles, CA </div>
+
+            <div>90012</div>
+
+        </div>
+
+    </div>
+    
+</ng-template>

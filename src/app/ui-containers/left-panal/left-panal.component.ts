@@ -22,6 +22,7 @@ export class LeftPanalComponent implements OnInit {
   settingsBtn = './assets/btn-icons/settings-btn.png';
 
   showAuctionOptions: boolean = false;
+  showUsersOptions: boolean = false;
 
   constructor(private interconnect: Interconnect, private elem: ElementRef) {
 
@@ -67,6 +68,7 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-btn.png';
 
             this.showAuctionOptions = false;
+            this.showUsersOptions = false;
 
           break;
 
@@ -81,18 +83,7 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-btn.png';
 
             this.showAuctionOptions = true;
-
-            leftbarOptionButtons.forEach((optBtn: any) => {
-
-              let subBtnId = +optBtn.id;
-
-              if(subBtnId === subViewId)
-                optBtn.classList.add('opt-btn-select');
-              else
-                optBtn.classList.remove('opt-btn-select');
-
-            })
-
+            this.showUsersOptions = false;
 
           break;
 
@@ -106,6 +97,7 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-btn.png';
 
             this.showAuctionOptions = false;
+            this.showUsersOptions = true;
 
           break;
 
@@ -119,6 +111,7 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-btn.png';
 
             this.showAuctionOptions = false;
+            this.showUsersOptions = false;
 
           break;
 
@@ -132,6 +125,7 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-btn.png';
 
             this.showAuctionOptions = false;
+            this.showUsersOptions = false;
 
           break;
 
@@ -145,6 +139,7 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-btn.png';
 
             this.showAuctionOptions = false;
+            this.showUsersOptions = false;
 
           break;
 
@@ -158,10 +153,22 @@ export class LeftPanalComponent implements OnInit {
             this.settingsBtn = './assets/btn-icons/settings-white.png';
 
             this.showAuctionOptions = false;
+            this.showUsersOptions = false;
 
           break;
 
         }
+
+        leftbarOptionButtons.forEach((optBtn: any) => {
+
+          let subBtnId = +optBtn.id;
+
+          if(subBtnId === subViewId)
+            optBtn.classList.add('opt-btn-select');
+          else
+            optBtn.classList.remove('opt-btn-select');
+
+        })
 
         btn.classList.add('select');
 

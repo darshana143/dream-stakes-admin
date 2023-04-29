@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { IGridFilter } from '../app.types';
 import { RegularGridCheckboxComponent } from '../ds-components/ag-grid/regular-checkbox/regular-checkbox.component';
+import { RegularGridPopupComponent } from '../ds-components/ag-grid/regular-popup/regular-popup.component';
 
 @Component({
   selector: 'app-auctions',
@@ -62,8 +63,16 @@ export class AuctionsComponent implements OnInit {
     {  
       headerName: 'Submitted on',
       field: 'SubmittedOn',
-      width: 350,
+      width: 300,
       resizable: true,
+      
+    },
+    {  
+      headerName: '',
+      field: 'action',
+      width: 50,
+      resizable: true,
+      cellRendererFramework: RegularGridPopupComponent,
       
     }
     
@@ -381,6 +390,24 @@ export class AuctionsComponent implements OnInit {
 
     var x = params.api.getSelectedRows();
     console.log(x)
+  }
+
+  onCellClicked(params) {
+
+    if (params.event.target.dataset.action == 'toggle' && params.column.getColId() == 'action') {
+
+      const cellRendererInstances = params.api.getCellRendererInstances({
+        rowNodes: [params.node],
+        columns: [params.column],
+      });
+
+      if (cellRendererInstances.length > 0) {
+        const instance = cellRendererInstances[0].getFrameworkComponentInstance();
+        instance.togglePopup();
+      }
+
+    }
+
   }
 
 }

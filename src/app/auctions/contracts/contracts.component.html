@@ -2,7 +2,7 @@
 
     <div class="title-area">
 
-        <div class="title">Auctions > {{filterTitle}} Auctions</div>
+        <div class="title">Auctions > Contracts</div>
         <div></div>
 
     </div>
@@ -43,6 +43,7 @@
                 [suppressRowClickSelection]="true"
                 [rowSelection]="rowSelection"
                 (rowSelected)="onRowSelected($event)"
+                (cellClicked)="onCellClicked($event)"
             >
             </ag-grid-angular>
 

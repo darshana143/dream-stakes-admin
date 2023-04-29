@@ -23,6 +23,7 @@
                 [columnDefs]="activeColumnDefs"
                 [rowData]="activeRowData"
                 [suppressRowClickSelection]="true"
+                (cellClicked)="onCellClicked($event)"
                 
             >
             </ag-grid-angular> 

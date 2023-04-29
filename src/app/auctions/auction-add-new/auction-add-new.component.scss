@@ -191,52 +191,12 @@
 
         .container{
 
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            width: 327.43px;
-            height: 127px;
-            background-color:rgba(114, 205, 194, 0.11);
-            border: 1px  dashed rgba(74, 137, 152, 1);
+            img{
 
-            .upload-btn{
-
-                button{
-
-                    border: none;
-    
-                }
+                width: 327.43px;
+                height: 127px;
 
             }
-
-            .text-area{
-
-                font-family:  Work Sans;
-                font-size: 12px;
-                line-height: 14px;
-                color: #4A8998;
-                margin-left: 21px;
-
-                .text1{
-
-                    font-weight: 600;
-                    margin-bottom: 11px;
-                }
-
-                .text2{
-
-                    font-weight: 300;
-                }
-
-
-
-
-
-            }
-
-            
-
             
         }
 
