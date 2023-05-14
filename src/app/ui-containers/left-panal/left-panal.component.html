@@ -69,10 +69,38 @@
             <img [src]="messageBtn">
             <label>Message</label>
         </div>
+
+        <div class="main-btn-options" *ngIf="showMessageOptions">
+            
+            <div id="19" class="option-btn " (click)="userChangeView(_MainViews.message, _SubViews.msg_mass_msg)">
+                Mass Message
+            </div>
+
+            <div id="20" class="option-btn opt-btn-select" (click)="userChangeView(_MainViews.message, _SubViews.msg_builder_side)">
+                Builder Side
+            </div>
+
+            <div  id="21" class="option-btn" (click)="userChangeView(_MainViews.message, _SubViews.msg_client_side)">
+                Client Side
+            </div>
+
+        </div>
     
         <div id="4" class="main-btns" (click)="userChangeView(_MainViews.ads)">
             <img [src]="adsdBtn">
             <label>Ads</label>
+        </div>
+
+        <div class="main-btn-options" *ngIf="showAdsOptions">
+
+            <div id="22" class="option-btn " (click)="userChangeView(_MainViews.ads, _SubViews.ads_all)">
+                All Ads
+            </div>
+
+            <div id="23" class="option-btn opt-btn-select" (click)="userChangeView(_MainViews.ads, _SubViews.ads_new)">
+                Add New
+            </div>
+
         </div>
     
         <div  id="5" class="main-btns" (click)="userChangeView(_MainViews.archive)">

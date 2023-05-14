@@ -23,6 +23,8 @@ export class LeftPanalComponent implements OnInit {
 
   showAuctionOptions: boolean = false;
   showUsersOptions: boolean = false;
+  showMessageOptions: boolean = false;
+  showAdsOptions: boolean = false;
 
   constructor(private interconnect: Interconnect, private elem: ElementRef) {
 
@@ -46,7 +48,7 @@ export class LeftPanalComponent implements OnInit {
   }
 
   private buttonsIconChange(viewId, subViewId){
-
+    
     let leftbarButtons = Array.from(this.elem.nativeElement.querySelectorAll('.main-btns'));
     let leftbarOptionButtons = Array.from(this.elem.nativeElement.querySelectorAll('.option-btn'));
     
@@ -69,6 +71,8 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = false;
             this.showUsersOptions = false;
+            this.showMessageOptions = false;
+            this.showAdsOptions = false;
 
           break;
 
@@ -84,6 +88,9 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = true;
             this.showUsersOptions = false;
+            this.showMessageOptions = false;
+            this.showAdsOptions = false;
+
 
           break;
 
@@ -98,6 +105,9 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = false;
             this.showUsersOptions = true;
+            this.showMessageOptions = false;
+            this.showAdsOptions = false;
+
 
           break;
 
@@ -112,7 +122,10 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = false;
             this.showUsersOptions = false;
+            this.showMessageOptions = true;
+            this.showAdsOptions = false;
 
+         
           break;
 
           case this._MainViews.ads:
@@ -126,6 +139,8 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = false;
             this.showUsersOptions = false;
+            this.showMessageOptions = false;
+            this.showAdsOptions = true;
 
           break;
 
@@ -140,6 +155,8 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = false;
             this.showUsersOptions = false;
+            this.showMessageOptions = false;
+            this.showAdsOptions = false;
 
           break;
 
@@ -154,6 +171,8 @@ export class LeftPanalComponent implements OnInit {
 
             this.showAuctionOptions = false;
             this.showUsersOptions = false;
+            this.showMessageOptions = false;
+            this.showAdsOptions = false;
 
           break;
 

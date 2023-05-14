@@ -14,7 +14,7 @@ export class AuctionAddNewComponent implements OnInit {
   text2: string;
   uploadedFiles: any[] = [];
 
-  image: string | SafeUrl = '.././assets/img-icon.png';
+  image: string | SafeUrl = './assets/img-icon.png';
 
   
 

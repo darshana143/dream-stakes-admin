@@ -18,6 +18,11 @@ export enum AdminSubViews {
     usr_add_new = 16,
     user_profile = 17,
     user_management = 18,
+    msg_mass_msg = 19,
+    msg_builder_side = 20,
+    msg_client_side = 21,
+    ads_new = 22,
+    ads_all = 23
 
 }
 
@@ -40,5 +45,20 @@ export enum IGridFilterUsers {
     subscriber = 'subcribers',
     premium = 'premium',
     bulider = 'bulider'
+    
+}
+
+export enum IGridFilterMsg {
+    all = 'all',
+    Message = 'Message',
+    Email = 'Email',
+    SMS = 'SMS',
+    Trash = 'Trash'
+}
+export interface IUser {
+    displayName: string,
+    fullName: string,
+    email: string,
+    profileImage: string,
     
 }

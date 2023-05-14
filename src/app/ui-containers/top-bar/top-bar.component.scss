@@ -5,6 +5,8 @@
     height: 90px;
     position: relative;
     padding: 32px 38px 0px 40px;
+    -webkit-user-select: none; /* Safari */
+    user-select: none; /* Standard syntax */
 
     .section-1 {
         width: 525px;

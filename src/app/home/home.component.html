@@ -24,6 +24,13 @@
         <app-all-users *ngIf="currentMainView === _SubViews.all_users"></app-all-users>
         <app-add-new-users *ngIf="currentMainView === _SubViews.usr_add_new"></app-add-new-users>
         <app-user-profile *ngIf="currentMainView === _SubViews.user_profile"></app-user-profile>
+
+        <app-message *ngIf="currentMainView === _MainViews.message || currentMainView === _SubViews.msg_builder_side"></app-message>
+        <app-mass-msg *ngIf=" currentMainView === _SubViews.msg_mass_msg"></app-mass-msg>
+        <app-client-side *ngIf="currentMainView === _SubViews.msg_client_side"></app-client-side>
+
+        <app-ads *ngIf="currentMainView === _MainViews.ads || currentMainView === _SubViews.ads_new"></app-ads>
+        <app-ads-all *ngIf="currentMainView === _SubViews.ads_all"></app-ads-all>
   
       </div>
   

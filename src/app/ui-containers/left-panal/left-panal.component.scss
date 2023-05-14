@@ -7,6 +7,8 @@
     background: #FFFFFF;
     align-items: center;
     flex-shrink: 0;
+    -webkit-user-select: none; /* Safari */
+    user-select: none; /* Standard syntax */
 
     .main-btns {
         display: flex;

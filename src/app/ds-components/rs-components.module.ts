@@ -5,10 +5,11 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { RegularGridButtonComponent } from './ag-grid/regular-button/regular-button.component';
 import { RegularGridPopupComponent } from './ag-grid/regular-popup/regular-popup.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
-  declarations: [RegularGridCheckboxComponent,RegularGridButtonComponent,RegularGridPopupComponent],
+  declarations: [RegularGridCheckboxComponent,RegularGridButtonComponent,RegularGridPopupComponent, NotificationComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,7 +18,8 @@ import { RegularGridPopupComponent } from './ag-grid/regular-popup/regular-popup
   exports:[
     RegularGridCheckboxComponent,
     RegularGridButtonComponent,
-    RegularGridPopupComponent
+    RegularGridPopupComponent,
+    NotificationComponent
   ]
 })
 export class DsComponentsModule { }

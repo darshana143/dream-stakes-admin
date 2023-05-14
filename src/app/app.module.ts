@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { TopBarComponent } from './ui-containers/top-bar/top-bar.component';
 import { LeftPanalComponent } from './ui-containers/left-panal/left-panal.component';
+import { RightPanalComponent } from './ui-containers/right-panal/right-panal.component';
 import { OverviewComponent } from './overview/overview.component';
 import { AuctionsComponent } from './auctions/auctions.component';
 import { DsComponentsModule } from './ds-components/rs-components.module';
@@ -22,6 +23,8 @@ import { UserAnalyticsComponent } from './users/user-analytics/user-analytics.co
 import { AllUsersComponent } from './users/all-users/all-users.component';
 import { AddNewUsersComponent } from './users/add-new-users/add-new-users.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { MessageComponent } from './message/message.component';
+import { MassMsgComponent } from './message/mass-msg/mass-msg.component'
 
 // ------------------------- PrimeNG -----------------------------
 import {InputTextModule} from 'primeng/inputtext';
@@ -31,6 +34,14 @@ import { TabViewModule } from "primeng/tabview";
 import {EditorModule} from 'primeng/editor';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import { CalendarModule } from 'primeng/calendar';
+import { ClientSideComponent } from './message/client-side/client-side.component';
+import { AdsComponent } from './ads/ads.component';
+import { AdsAllComponent } from './ads/ads-all/ads-all.component';
+
+
+
 
 
 @NgModule({
@@ -48,7 +59,13 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     UserAnalyticsComponent,
     AllUsersComponent,
     AddNewUsersComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MessageComponent,
+    MassMsgComponent,
+    RightPanalComponent,
+    ClientSideComponent,
+    AdsComponent,
+    AdsAllComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +80,9 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     DsComponentsModule,
     EditorModule,
     CheckboxModule,
-    InputSwitchModule
+    InputSwitchModule,
+    RadioButtonModule,
+    CalendarModule
     
   ],
   providers: [],

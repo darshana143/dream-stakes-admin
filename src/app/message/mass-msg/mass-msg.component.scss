@@ -1,0 +1,346 @@
+.mass-msg-container{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 40px 41px 0px 40px;
+    -webkit-user-select: none; /* Safari */
+    user-select: none; /* Standard syntax */
+
+    .selection-area{
+
+        width: 300px;
+        height: 100%;
+        border-right: 1px solid #E9EDF0;
+
+        .selection-area-title{
+
+            font-family: 'Open Sans';
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 33px;
+            letter-spacing: 0.3px;
+            color: #344563;
+            margin-bottom: 31px;
+        }
+
+        
+        .opt-div-select {
+            color: #4A8998;
+        }
+
+
+        div{
+
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 22px;
+            color: #727272;
+            margin-bottom: 18px;
+            cursor: pointer;
+
+        }
+
+
+    }
+
+    .template-area{
+
+        // background-color: burlywood;
+        flex-grow: 1;
+        height: 100%;
+
+
+    }
+
+    .title{
+
+        
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 25px;
+        color: #253858;
+        margin-left: 27px;
+        
+    }
+
+    .container{
+
+        padding-left: 138px;
+        margin-top: 46px;
+
+        .input-container{
+
+            display: flex;
+            
+           
+
+            .input-titles{
+
+                width: 200px;
+
+                .message{
+
+                    height: 180px;
+
+                    label{
+                        
+                        top: 277px;
+                     
+                    }
+                }
+
+                .subject{
+
+                    label{
+                        
+                        top: 200px;
+                     
+                    }
+                }
+
+                div{
+                    
+                    height: 44px;
+                    margin-bottom: 30px;
+                }
+
+                
+                label{
+
+                    position: absolute;
+                    top: 203px;
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: #878FA7;
+
+                }
+
+
+
+            }
+
+            .inputs{
+
+                display: flex;
+                flex-direction: column;
+                padding-left: 80px;
+
+                .message{
+
+                    height: 170px;
+                }
+
+                .checkboxes{
+
+                    display: flex;
+                    flex-direction: row;
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 150%;
+                    text-align: justify;
+                    color: #3F3F44;
+                    margin-bottom: 42px;
+                }
+
+                .period-area{
+
+                    display: flex;
+                    flex-direction: row;
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #3F3F44;
+
+                    .date{
+
+                        width: 140px;
+                        height: 32px;
+                        margin-right: 68px;
+
+                        div{
+
+                            margin-bottom: 18px;
+                        }
+                    }
+
+                    .time{
+
+                        width: 140px;
+                        height: 32px;
+                        
+                        div{
+
+                            margin-bottom: 18px;
+                        }
+                        
+                    }
+
+                   
+    
+                }
+
+                .button-area{
+
+                    .preview-btn{
+
+                        button{
+
+                            left: 922px;
+                            top: 785px;
+                            width: 88px;
+                            height: 32px; 
+                            background: #ffffff;
+                            border: 1.5px solid #4A8998;
+                            color: #4A8998;
+
+        
+                        }
+
+
+                    }
+
+                    .send-btn{
+
+                        button{
+
+                            top: 785px; 
+                            
+                        }
+                    }
+                }
+
+                input{
+
+                    width: 379px;
+                    height: 44px;
+                    margin-bottom: 30px;
+                }
+
+                button{
+
+                    position: absolute;
+                    left: 1065px;
+                    top: 731px;
+                    width: 71px;
+                    height: 32px; 
+                    font-family: 'Be Vietnam Pro';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 12px;
+                    line-height: 24px;
+                    text-align: center;
+                    background: #4A8998;
+                    color: #FFFFFF;
+                    border: none;
+
+                }
+
+                p-dropdown{
+
+                    margin-bottom: 40px;
+                    
+                }
+
+                p-radioButton{
+
+                    margin-bottom: 20px;
+
+                }
+
+            }
+
+           
+
+        }
+    
+
+    }
+
+    //#temp5
+
+    .container2{
+
+        
+        margin-top: 46px;
+
+        .content{
+
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100px;
+            
+
+            .tab-area{
+
+                display: flex;
+                flex-direction: row;
+                height: 100%;
+                width: 100%;
+                
+
+                div{
+
+                    width: 213px;
+                    height: 26px;
+                    font-family: Open Sans;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 26px;
+                    color: #2C2C2C;
+                    cursor: pointer;
+                    text-align: center;
+                    border-right: 1px solid #4A8998;
+                }
+
+                .select {
+                    color: #4A8998;
+                }
+                
+            }
+            .dropdownbtn-area{
+
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                width: 500px;
+                height: 100%;
+
+                button{
+
+                    width: 76px;
+                    height: 44px;
+                    color: #FFFFFF;
+                    background-color: #4A8998;
+                    margin-left: 15px;
+                    border: none;
+                }
+
+            }
+
+        }
+
+        .table-area{
+
+            height: 648px;
+            width: 100%;
+            padding-left: 20px;
+            
+        }
+    }
+
+    
+}

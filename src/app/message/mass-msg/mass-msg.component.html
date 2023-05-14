@@ -1,0 +1,479 @@
+<div class="mass-msg-container">
+
+    <div class="selection-area">
+        
+        <div class="selection-area-title">Mass Message</div>
+
+        <div id="1" class="opt-div opt-div-select"  (click)="selectTemplate($event, '1')"> New Mass Message</div>
+
+        <div id="2" class="opt-div" (click)="selectTemplate($event, '2')">New Mass Email</div>
+
+        <div id="3" class="opt-div" (click)="selectTemplate($event, '3')">New Mass SMS</div>
+
+        <div id="4" class="opt-div" (click)="selectTemplate($event, '4')">New SMS Campaign</div>
+        
+        <div id="5" class="opt-div" (click)="selectTemplate($event, '5')">Mass Message History</div>
+        
+    </div>
+
+    <div class="template-area">
+
+        <div *ngIf="selectedType == 1">
+            <ng-container *ngTemplateOutlet="temp1; context: {'currentTemplate': selectedType}"></ng-container>
+        </div>
+
+        <div *ngIf="selectedType == 2">
+            <ng-container *ngTemplateOutlet="temp2; context: {'currentTemplate':selectedType}"></ng-container>
+        </div>
+
+        <div *ngIf="selectedType == 3">
+            <ng-container *ngTemplateOutlet="temp3; context: {'currentTemplate': selectedType}"></ng-container>
+        </div>
+
+        <div *ngIf="selectedType == 4">
+            <ng-container *ngTemplateOutlet="temp4; context: {'currentTemplate':selectedType}"></ng-container>
+        </div>
+        <div *ngIf="selectedType == 5">
+            <ng-container *ngTemplateOutlet="temp5; context: {'currentTemplate': selectedType}"></ng-container>
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+<ng-template #temp1 let-currentTemplate ="currentTemplate">
+
+    <div class="title">New Mass Message (online)</div>
+
+    <div class="container">
+
+        <div class="input-container">
+
+            <div class="input-titles">
+
+                <div>Message From:</div>
+
+                <div>
+
+                    <div> Subject:</div>
+                   
+                    <label>This message saving by this name</label>
+
+                </div>
+
+                <div class="message">Message:</div>
+
+                <div>Recipients:</div>
+
+                <div>Send Email:</div>
+
+            </div>
+
+            <div class="inputs">
+
+                <input type="text" size="30" pInputText>
+
+                <input type="text" size="30" pInputText>
+
+                <input class="message" type="text"  pInputText>
+
+                <p-dropdown [options]="recipents"></p-dropdown>
+
+                <p-radioButton name="groupname" [value]="part1" label="Immediately" (onClick)="makeImmediatelyTrue()"></p-radioButton>
+                <p-radioButton name="groupname" [value]="part2" label="Start Sending SMS at" (onClick)="makeStartSendingSMSatTrue()"></p-radioButton>
+
+                <div class="period-area" *ngIf="part2">
+
+                    <div class="date">
+
+                        <div>Set Date</div>
+
+                        <p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon"></p-calendar>
+
+                    </div>
+
+                    <div class="time">
+
+                        <div>Set Time</div>
+
+                        <p-calendar [(ngModel)]="time" [showIcon]="true" icon=" pi pi-clock" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                    </div>
+
+                </div>
+
+                <button>Send</button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</ng-template>
+
+
+
+<ng-template #temp2 let-currentTemplate ="currentTemplate">
+
+    <div class="title">New Mass Email</div>
+
+    <div class="container">
+
+        <div class="input-container">
+
+            <div class="input-titles">
+
+                <div>Message From:</div>
+
+                <div>Subject:</div>
+
+                <div class="message">Message:</div>
+
+                <div>Recipients:</div>
+
+                <div>Send Email:</div>
+
+            </div>
+
+            <div class="inputs">
+
+                <input type="text" size="30" pInputText>
+
+                <input type="text" size="30" pInputText>
+
+                <input class="message" type="text"  pInputText>
+
+                <p-dropdown [options]="recipents"></p-dropdown>
+
+                <p-radioButton name="groupname" [value]="part1" label="Immediately" (onClick)="makeImmediatelyTrue()"></p-radioButton>
+                <p-radioButton name="groupname" [value]="part2" label="Start Sending SMS at" (onClick)="makeStartSendingSMSatTrue()"></p-radioButton>
+
+                <div class="period-area" *ngIf="part2">
+
+                    <div class="date">
+
+                        <div>Set Date</div>
+
+                        <p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon"></p-calendar>
+
+                    </div>
+
+                    <div class="time">
+
+                        <div>Set Time</div>
+
+                        <p-calendar [(ngModel)]="time" [showIcon]="true" icon=" pi pi-clock" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                    </div>
+
+                </div>
+
+
+                <button>Send</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+   
+</ng-template>
+
+
+
+<ng-template #temp3 let-currentTemplate ="currentTemplate">
+
+    <div class="title">New Mass SMS</div>
+
+    <div class="container">
+
+        <div class="input-container">
+
+            <div class="input-titles">
+
+                <div class="subject">
+                    
+                    <div> Subject:</div>
+                   
+                    <label>This message saving by this name</label>
+
+                </div>
+
+                <div>SMS From:</div>
+
+                <div class="message">
+                    
+                    <div> SMS text:</div>
+                   
+                    <label>26 symbols, 1 SMS</label>
+
+                </div>
+
+                <div style="margin-top: 95px;">Recipients:</div>
+
+                <div>Send Email:</div>
+
+            </div>
+
+            <div class="inputs">
+
+                <input type="text" size="30" pInputText>
+
+                <input type="text" size="30" pInputText>
+
+                <div class="message-area">
+
+                <input class="message" type="text"  pInputText>
+
+                <div class="checkboxes">
+
+                    <div style="display: flex; margin-right: 25px;">
+
+                        <p-checkbox></p-checkbox>
+
+                        <div style="margin-left: 7px;">Transliteration</div>
+
+                    </div>
+
+                    <div style="display: flex;">
+
+                        <p-checkbox></p-checkbox>
+
+                        <div style=" margin-left: 7px;">Unsubscribe link</div>
+
+                    </div>
+
+                </div>
+                </div>
+
+                
+
+                <p-dropdown [options]="recipents"></p-dropdown>
+
+                <p-radioButton name="groupname" [value]="part1" label="Immediately" (onClick)="makeImmediatelyTrue()"></p-radioButton>
+                <p-radioButton name="groupname" [value]="part2" label="Start Sending SMS at" (onClick)="makeStartSendingSMSatTrue()"></p-radioButton>
+
+                <div class="period-area" *ngIf="part2">
+
+                    <div class="date">
+
+                        <div>Set Date</div>
+
+                        <p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon"></p-calendar>
+
+                    </div>
+
+                    <div class="time">
+
+                        <div>Set Time</div>
+
+                        <p-calendar [(ngModel)]="time" [showIcon]="true" icon=" pi pi-clock" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                    </div>
+
+                </div>
+
+               
+                <div class="button-area">
+
+                    <div class="preview-btn">
+
+                        <button>Preview</button>
+
+                    </div>
+
+                    <div class="send-btn">
+
+                        <button>Send</button>
+
+                    </div>
+
+    
+                </div>
+
+
+            </div>
+
+         
+
+        </div>
+        
+    </div>
+
+</ng-template>
+
+
+
+<ng-template #temp4 let-currentTemplate ="currentTemplate">
+
+    <div class="title">New SMS Campaign</div>
+
+    <div class="container">
+
+        <div class="input-container">
+
+            <div class="input-titles">
+
+                <div>Campaign Name:</div>
+
+                <div>SMS From:</div>
+
+                <div class="message">
+                    
+                    <div> SMS text:</div>
+                   
+                    <label>26 symbols, 1 SMS</label>
+
+                </div>
+
+                <div style="margin-top: 95px;">Recipients:</div>
+
+                <div>Send Email:</div>
+
+            </div>
+
+            <div class="inputs">
+
+                <input type="text" size="30" pInputText>
+
+                <input type="text" size="30" pInputText>
+
+                <div class="message-area">
+
+                <input class="message" type="text"  pInputText>
+
+                <div class="checkboxes">
+
+                    <div style="display: flex; margin-right: 25px;">
+
+                        <p-checkbox></p-checkbox>
+
+                        <div style="margin-left: 7px;">Transliteration</div>
+
+                    </div>
+
+                    <div style="display: flex;">
+
+                        <p-checkbox></p-checkbox>
+
+                        <div style=" margin-left: 7px;">Unsubscribe link</div>
+
+                    </div>
+
+                </div>
+                </div>
+
+                
+
+                <p-dropdown [options]="recipents"></p-dropdown>
+
+                <p-radioButton name="groupname" [value]="part1" label="Immediately" (onClick)="makeImmediatelyTrue()"></p-radioButton>
+                <p-radioButton name="groupname" [value]="part2" label="Start Sending SMS at" (onClick)="makeStartSendingSMSatTrue()"></p-radioButton>
+
+                <div class="period-area" *ngIf="part2">
+
+                    <div class="date">
+
+                        <div>Set Date</div>
+
+                        <p-calendar [(ngModel)]="date" [showIcon]="true" inputId="icon"></p-calendar>
+
+                    </div>
+
+                    <div class="time">
+
+                        <div>Set Time</div>
+
+                        <p-calendar [(ngModel)]="time" [showIcon]="true" icon=" pi pi-clock" [timeOnly]="true" inputId="timeonly"></p-calendar>
+                    </div>
+
+                </div>
+
+               
+                <div class="button-area">
+
+                    <div class="preview-btn">
+
+                        <button>Preview</button>
+
+                    </div>
+
+                    <div class="send-btn">
+
+                        <button>Send</button>
+
+                    </div>
+
+    
+                </div>
+
+
+            </div>
+
+         
+
+        </div>
+        
+    </div>
+
+   
+</ng-template>
+
+
+
+<ng-template #temp5 let-currentTemplate ="currentTemplate">
+
+    <div class="title">Mass Message History</div>
+
+    <div class="container2">
+
+        <div class="content">
+
+            <div class="tab-area">
+    
+                <div [id]="gridFiletr.all" class="filters select" style="width: 135px;" (click)="gridFilter(gridFiletr.all)">All ({{filteredDataCount.all}})</div>
+                <div [id]="gridFiletr.Message" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.Message)">Message ({{filteredDataCount.Message}})</div>
+                <div [id]="gridFiletr.Email" class="filters" (click)="gridFilter(gridFiletr.Email)">Email ({{filteredDataCount.Email}})</div>
+                <div [id]="gridFiletr.SMS" class="filters" style="width: 150px;" (click)="gridFilter(gridFiletr.SMS)">SMS ({{filteredDataCount.SMS}})</div>
+                <div [id]="gridFiletr.Trash" class="filters" style="width: 150px; border-right: unset;" (click)="gridFilter(gridFiletr.Trash)">Trash ({{filteredDataCount.Trash}})</div>
+    
+            </div>
+    
+            <div class="dropdownbtn-area">
+                <p-dropdown [options]="bulkActions"></p-dropdown>
+    
+                <button type="button">Apply</button>
+            </div>
+            
+        </div>
+        
+    
+        <div class="table-area">
+    
+            <div class="common-ag-grid-styles" style="width: 100%; height: 100%;">
+                        
+                <ag-grid-angular #agGrid 
+                    style="width: 100%; height: 100%; font-size: 12px;" 
+                    class="ag-theme-alpine"
+                    [rowData]="filteredData"
+                    [columnDefs]="activeColumnDefs"
+                    [suppressRowClickSelection]="true"
+                    [rowSelection]="rowSelection"
+                    (rowSelected)="onRowSelected($event)"
+                    (cellClicked)="onCellClicked($event)"
+                >
+                </ag-grid-angular>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+
+
+</ng-template>
+
+
+
