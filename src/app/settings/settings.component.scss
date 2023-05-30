@@ -1,0 +1,282 @@
+.settings-container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 40px 41px 0px 40px;
+
+
+    .title{
+
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 34px;
+        color: #2C2C2C;
+        margin-bottom: 51px;
+
+
+    }
+
+    .input-area1,.input-area3,.input-area5{
+
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-grow: 1;
+
+        .inputs{
+
+            width: 693px;
+
+                            
+            .ui-inputtext {
+
+                width: 693px;
+                height: 44px;
+            }
+
+        }
+
+        .site-title{
+
+            height: 44px;
+            margin-bottom: 35px;
+
+        }
+
+        .ad-email{
+
+            display: flex;
+            flex-direction: column;
+            height: 92px;
+            margin-bottom: 39px;
+
+            .sub-text{
+
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 19px;
+                color: #878FA7;
+                margin-top: 10px;
+            }
+
+        }
+
+        .img{
+
+            height: 127px;
+            margin-bottom: 35px;
+
+            img{
+
+                width: 127px;
+                height: 127px;
+            }
+            
+        }
+
+        .home-title1{
+
+            height: 44px;
+            margin-bottom: 50px;
+
+        }
+
+
+    }
+
+    .input-area2,.input-area4,.input-area6{
+        
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-grow: 1;
+
+        .home-title1-des{
+
+            margin-bottom: 20px;
+        }
+
+        .home-title1-des-box{
+
+            width: 1253px;
+            margin-bottom: 50px;
+
+        }
+        
+        .add-section{
+
+            margin-bottom: 100px;
+
+            img{
+
+                height: 127px;
+                width: 1253px;
+
+            }
+
+        }
+
+    }
+
+    .input-area7{
+
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-grow: 1;
+
+        .inputs{
+
+            width: 693px;
+
+            .timezone{
+
+                height: 92px;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 14px;
+                line-height: 19px;
+                color: #878FA7;
+
+                div{
+                    margin-top: 10px;
+                }
+            }
+
+        }
+
+        .timezone{
+
+            height: 92px;
+            margin-bottom: 39px;
+        }
+
+        .date-format{
+
+            height: 200px;
+
+         
+
+
+        }
+
+        .time-format{
+
+            height: 200px;
+
+
+        }
+
+        .week-starts-on{
+
+            height: 44px;
+            margin-bottom: 160px;
+
+
+        }
+
+        .field-checkbox{
+
+            margin-bottom: 16px;
+            display: flex;
+            
+
+            .ml-2{
+                width: 145px;
+
+            }
+
+            div{
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(185, 185, 185, 1);
+                border-radius: 1px; 
+                width: 44px; 
+                height: 20px; 
+                
+                label{
+
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 10px;
+                    line-height: 14px;
+                    color: #B9B9B9;
+
+                }
+                
+            }
+        
+
+        }
+
+        p-dropdown{
+            font-family: 'Karla';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #000000;
+
+        }
+
+        p-radiobutton{
+
+            margin-right: 25px;
+           
+        }
+
+        label{
+
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            color: #393A3D;
+        }
+
+        button{
+
+            width: 126px;
+            height: 32px;
+            background: #4A8998;
+            border: none;
+            font-family: 'Be Vietnam Pro';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 24px;
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 100px;
+
+        }
+
+    }
+
+    .input-titles{
+
+        display: flex;
+        flex-direction: column;
+        width: 235px;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+        color: #393A3D;
+        margin-right: 325px;
+
+    }
+
+}

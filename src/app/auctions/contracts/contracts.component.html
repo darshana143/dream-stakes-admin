@@ -1,14 +1,13 @@
-<div class="contractors-container">
+<div class="contractors-container" *ngIf="defult" >
 
     <div class="title-area">
 
         <div class="title">Auctions > Contracts</div>
-        <div></div>
 
     </div>
 
     <div class="new-contract">
-        <button type="button">+ New Contract</button>
+        <button type="button" (click)="openNew()">+ New Contract</button>
     </div>
 
     <div class="contractors-content">
@@ -51,5 +50,69 @@
 
     </div>
 
+</div>
+
+
+<div class="contractors-container2" *ngIf="addNew">
+
+   
+    <div class="title">Auctions > Contract > Add New </div>
+     
+  
+    <div class="name-area">
+
+        <div class="sub-title">Contract Name</div>
+
+        <input type="text" pInputText placeholder="Type Here">  
+        
+    </div>
+
+    <div class="description-area">
+
+        <div class="sub-title">Add Description</div>
+
+        <p-editor [(ngModel)]="text" [style]="{'height':'298px'}"></p-editor>
+
+    </div>
+
+    <div class="btn-area">
+
+        <button type="button" style="background-color: #4A8998;">Publish</button>
+
+        <button type="button" style="color: #4A8998;">Save Draft</button>
+
+    </div>
+
+</div>
+
+<div class="contractors-container2" *ngIf="openEdit">
+
+   
+    <div class="title">Auctions >Edit Contract </div>
+     
+  
+    <div class="name-area">
+
+        <div class="sub-title">Contract Name</div>
+
+        <input type="text" pInputText placeholder="Type Here">  
+        
+    </div>
+
+    <div class="description-area">
+
+        <div class="sub-title">Add Description</div>
+
+        <p-editor [(ngModel)]="text" [style]="{'height':'298px'}"></p-editor>
+
+    </div>
+
+    <div class="btn-area">
+
+        <button type="button" style="background-color: #4A8998;">Publish</button>
+
+        <button type="button" style="color: #4A8998;">Save Draft</button>
+
+    </div>
 
 </div>

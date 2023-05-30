@@ -25,6 +25,7 @@ export class LeftPanalComponent implements OnInit {
   showUsersOptions: boolean = false;
   showMessageOptions: boolean = false;
   showAdsOptions: boolean = false;
+  showSettingsOptions: boolean = false;
 
   constructor(private interconnect: Interconnect, private elem: ElementRef) {
 
@@ -73,6 +74,7 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = false;
             this.showMessageOptions = false;
             this.showAdsOptions = false;
+            this.showSettingsOptions = false;
 
           break;
 
@@ -90,6 +92,7 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = false;
             this.showMessageOptions = false;
             this.showAdsOptions = false;
+            this.showSettingsOptions = false;
 
 
           break;
@@ -107,6 +110,7 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = true;
             this.showMessageOptions = false;
             this.showAdsOptions = false;
+            this.showSettingsOptions = false;
 
 
           break;
@@ -124,6 +128,7 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = false;
             this.showMessageOptions = true;
             this.showAdsOptions = false;
+            this.showSettingsOptions = false;
 
          
           break;
@@ -141,6 +146,7 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = false;
             this.showMessageOptions = false;
             this.showAdsOptions = true;
+            this.showSettingsOptions = false;
 
           break;
 
@@ -157,6 +163,8 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = false;
             this.showMessageOptions = false;
             this.showAdsOptions = false;
+            this.showSettingsOptions = false;
+
 
           break;
 
@@ -173,6 +181,7 @@ export class LeftPanalComponent implements OnInit {
             this.showUsersOptions = false;
             this.showMessageOptions = false;
             this.showAdsOptions = false;
+            this.showSettingsOptions = true;
 
           break;
 

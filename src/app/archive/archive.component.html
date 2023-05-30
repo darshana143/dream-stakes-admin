@@ -1,0 +1,153 @@
+<div class="archive-container">
+
+    <div class="top-container">
+
+        <div class="title-area">
+
+            <div class="title">Revenue</div>
+
+            <p-dropdown [options]="revenue"></p-dropdown>
+
+
+
+         
+        </div>
+
+        <div class="content">
+
+            <ng-container *ngTemplateOutlet="details2; context: {'detailContentPerformances': detailContentPerformances}"></ng-container>
+    
+        </div>
+
+    </div>
+
+    <div class="middle-container">
+
+        <div class="chart-area">
+
+            <div class="chart">
+
+                <div class="dropdown-area">
+    
+                    <div>
+                        <p-dropdown [options]="performances" ></p-dropdown>
+                    </div>
+    
+                    <div>
+                        <p-dropdown [options]="mounths"></p-dropdown>
+                        
+                    </div>
+    
+                </div>
+    
+                <p-chart type="bar" [data]="chartData" [width]="chartWidth" [responsive]="false" [height]="chartHeight" [options]="chartOptions"></p-chart>
+    
+            </div>
+    
+            <div class="details-container">
+    
+                <div class="template-area">
+    
+                    <ng-container *ngTemplateOutlet="details1; context: {'detailContent': detailContent}"></ng-container>
+    
+                </div>   
+    
+            </div> 
+        </div>
+
+        <div class="activity-area">
+
+            <div class="title">Recent Activity</div>
+
+            <div class="notify-container" *ngFor="let notificationItem of notifications">
+
+                <div class="notification-image">
+            
+                    <img [src]="notificationItem.image">
+            
+                </div>
+            
+                <div class="notification-info">
+            
+                    <div class="text">
+            
+                        <div class="message">{{notificationItem.message}}</div>
+
+                        <div class="time">{{notificationItem.time}}</div>
+
+            
+                    </div>
+            
+                </div>
+                
+            
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bottom-container">
+
+        <div class="title">Auction Houses Performace</div>
+
+        <div class="common-ag-grid-styles" style="width: 100%; height: 500px;">
+                    
+            <ag-grid-angular #agGrid 
+                style="width: 100%; height: 100%; font-size: 12px;" 
+                class="ag-theme-alpine"
+                [rowData]="activeRowData"
+                [columnDefs]="activeColumnDefs"
+                [suppressRowClickSelection]="true"
+            >
+            </ag-grid-angular>
+
+        </div>
+    </div>
+
+</div>
+
+<ng-template #details2 let-detailContentPerformances = "detailContentPerformances" >
+
+    <div class="details-content" *ngFor="let detailContents of detailContentPerformances">
+
+        <div class="count-area">
+
+            <div class="count">{{detailContents.count}}</div>
+
+            <div class="detail">
+
+                <img src="./assets/archive/up.png">
+
+                <div>{{detailContents.detail}}</div>
+
+            </div>
+
+        </div>
+        
+        <div class="title">{{detailContents.title}}</div>
+
+
+    </div>
+
+</ng-template>
+
+<ng-template #details1 let-detailContent="detailContent" >
+
+    <div class="details-content" *ngFor="let detailContents of detailContent">
+
+        <div class="count">{{detailContents.count}}</div>
+
+        <div class="title">{{detailContents.title}}</div>
+
+        <div class="detail" *ngIf="detailContents.detail">
+
+            <img src="./assets/archive/up.png">
+
+            <div>{{detailContents.detail}}</div>
+
+        </div>
+
+    </div>
+
+</ng-template>

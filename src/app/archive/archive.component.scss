@@ -1,0 +1,329 @@
+.archive-container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 40px 41px 0px 40px;
+
+    .top-container{
+
+        display: flex;
+        flex-direction: column;
+        background: #FFFFFF;
+        height: 246px;
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 87px;
+
+        .title-area{
+
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+            width: 246px;
+            margin-bottom: 39px;
+
+            .title{
+
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 27px;
+                text-align: center;
+                color: #2C2C2C;
+                margin-right: 135px;
+            }
+        }
+
+        .content{
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+           
+    
+            .details-content{
+
+                display: flex;
+                flex-direction: row;
+                width: 350px;
+                height: 107px;
+                background-color: #F0F0F7;
+                border-radius: 10px;
+                margin-right: 22px;
+                padding: 13px 0px 0px 17px;
+
+                .count-area{
+
+                    display: flex;
+                    flex-direction: column;
+
+                    .count{
+            
+                    
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 36px;
+                        line-height: 49px;
+                        color: #0B1023;
+                        margin-bottom: 9px;
+                
+                    }
+
+                    .detail{
+
+                        display: flex;  
+                        flex-direction: row;                        
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 12px;
+                        line-height: 16px;
+                        color: #4A8998;
+                        margin-bottom: 20px;
+                        
+                        img{
+
+                            margin-right: 8px;
+                        }
+
+                    }
+
+                }
+                
+                .title{
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 44px;
+                    width: 113px;
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: #4A8998;
+                    margin-left: 33px;
+            
+                }
+                
+            }
+    
+        }
+
+    }
+
+    .middle-container{
+
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 684px;
+        
+
+        .chart-area{
+
+            flex-grow: 1;
+            height: 100%;
+            border-radius: 15px;
+
+            .chart{
+
+                display: flex;
+                flex-direction: column;
+                height: 389px;
+                margin-right: 11px;
+    
+                .dropdown-area{
+    
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 90%;
+                    height: 200px;
+                    
+                }
+            }
+    
+            .details-container{
+    
+                height: 389px;
+                width: 990px;
+                margin-left: 95px;
+                margin-top: 68px;
+                
+                .template-area{
+    
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    width: 100%;
+
+                    .details-content{
+
+                        width: 200px;
+                        height: 85px;
+                        margin: 0px 94px 46px 0px;
+                        
+                        .title{
+                            
+                            width: 82px;
+                            font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 22px;
+                            color: #878FA7;
+                            margin-bottom: 4px;
+                
+                        }
+                
+                        .count{
+                
+                            font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 700;
+                            font-size: 26px;
+                            line-height: 35px;
+                            color: #0B1023;
+                            margin-bottom: 4px;
+                
+                        }
+
+                        .detail{
+
+                            display: flex;  
+                            flex-direction: row;                        
+                            font-family: 'Open Sans';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 12px;
+                            line-height: 16px;
+                            color: #4A8998;
+                           
+                            
+                            img{
+    
+                                margin-right: 8px;
+                            }
+    
+                        }
+    
+                
+                    }
+    
+                }
+                
+            }
+
+        }
+
+        .activity-area{
+
+            display: flex;
+            flex-direction: column;
+            overflow-x: scroll;
+            width: 515px;
+            height: 720px;
+            background: #FFFFFF;
+            border-radius: 15px;
+
+            .title{
+
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 27px;
+                color: #2C2C2C;
+                margin-bottom: 55px;
+
+            }
+
+            .notify-container{
+
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid #D9D9D9;
+                height: 75px;
+                margin-bottom: 16px;
+            
+                .notification-image{
+
+                    height: 66px;
+                    width: 66px;
+            
+                    
+                }
+            
+                .notification-info{
+            
+                    display: flex;
+                    flex-direction: row;
+                    margin-left: 12px;
+                    margin-bottom: 22px;
+            
+                    .text{
+            
+                        font-family: 'Open Sans';
+                        font-weight: 400;
+                        font-style: normal;
+                        height: 52px;
+                        width: 309px;
+            
+                       .message{
+            
+                            font-size: 16px;
+                            line-height: 26px;
+                            color: #878FA7;
+            
+                       }
+
+                       .time{
+        
+                            font-size: 12px;
+                            line-height: 16px;
+                            color: #2C2C2C;
+                            margin-bottom: 16px;
+                            
+            
+                        }
+
+                    }
+            
+                }
+            }
+
+        }
+
+    }
+
+    .bottom-container{
+
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex-grow: 1;
+        margin-top: 58px;
+
+        .title{
+
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 27px;
+            color: #2C2C2C;
+            margin-bottom: 26px;
+        }
+
+
+    }
+
+}
+
+

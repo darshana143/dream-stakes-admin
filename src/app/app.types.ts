@@ -22,8 +22,10 @@ export enum AdminSubViews {
     msg_builder_side = 20,
     msg_client_side = 21,
     ads_new = 22,
-    ads_all = 23
-
+    ads_all = 23,
+    set_general = 24,
+    set_permalink = 25,
+    set_privacy = 26
 }
 
 export enum IGridFilter {

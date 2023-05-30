@@ -1,0 +1,160 @@
+.set-perm-container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 40px 41px 0px 40px;
+
+    .main-title{
+
+        width: 100%;        
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 34px;
+        color: #2C2C2C;
+        margin-bottom: 51px;
+
+
+    }
+
+    .container{
+
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-grow: 1;
+        
+
+        .radio-btn-area{
+
+            height: 100%;
+            width: 435px;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            color: #393A3D;
+
+            .field-checkbox{
+
+                height: 24px;
+                margin-bottom: 40px;
+            }
+
+            p-radiobutton{
+
+                margin-right: 16px;
+               
+            }
+           
+            
+        }
+
+        .link-area{
+
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            flex-grow: 1;
+
+            label{
+
+                height: 24px;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 19px;
+                color: #3F3F44;
+                margin-bottom: 40px;
+
+            }
+
+            input{
+
+                width: 443px;
+                height: 44px;
+                border: 1px solid #B9B9B9;
+                border-radius: 4px;
+                margin-left: 23px;
+            }
+
+            .tag-area{
+
+                display: flex;
+                flex-direction: row;
+
+                .title{
+
+                    font-family: 'Open Sans';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #393A3D;
+                    margin-right: 28px;
+
+                }
+
+                .tags{
+
+                    width: 610px; 
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+
+                    label{
+
+                        height: 20px;
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 10px;
+                        line-height: 14px;
+                        color: #727272;
+                        border: 1px solid rgba(114, 114, 114, 1);
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                        padding: 2px;
+                    }
+
+                }
+  
+            }
+           
+        }
+
+    }
+
+    .btn-area{
+
+        width: 100%;
+        height: 200px;
+        
+
+        
+        button{
+
+            width: 126px;
+            height: 32px;
+            background: #4A8998;
+            border: none;
+            font-family: 'Be Vietnam Pro';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 24px;
+            text-align: center;
+            color: #FFFFFF;
+            margin-bottom: 100px;
+
+        }
+
+
+    }
+}

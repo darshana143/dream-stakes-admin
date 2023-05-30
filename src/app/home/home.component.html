@@ -14,9 +14,9 @@
   
         <app-overview *ngIf="currentMainView === _MainViews.overview"></app-overview>
   
-        <app-auctions *ngIf="currentMainView === _MainViews.auctions || currentMainView === _SubViews.act_all"></app-auctions>
+        <app-auctions *ngIf="currentMainView === _SubViews.act_all"></app-auctions>
         <app-auction-add-new *ngIf="currentMainView === _SubViews.act_add_new"></app-auction-add-new>
-        <app-contracts *ngIf="currentMainView === _SubViews.act_contracts"></app-contracts>
+        <app-contracts *ngIf="currentMainView === _MainViews.auctions ||currentMainView === _SubViews.act_contracts"></app-contracts>
         <app-winners *ngIf="currentMainView === _SubViews.act_winners"></app-winners>
   
         <app-users *ngIf="currentMainView === _MainViews.users || currentMainView === _SubViews.user_management"></app-users>
@@ -25,12 +25,18 @@
         <app-add-new-users *ngIf="currentMainView === _SubViews.usr_add_new"></app-add-new-users>
         <app-user-profile *ngIf="currentMainView === _SubViews.user_profile"></app-user-profile>
 
-        <app-message *ngIf="currentMainView === _MainViews.message || currentMainView === _SubViews.msg_builder_side"></app-message>
+        <app-message *ngIf="currentMainView === _MainViews.message ||currentMainView === _SubViews.msg_builder_side"></app-message>
         <app-mass-msg *ngIf=" currentMainView === _SubViews.msg_mass_msg"></app-mass-msg>
-        <app-client-side *ngIf="currentMainView === _SubViews.msg_client_side"></app-client-side>
+        <app-client-side *ngIf=" currentMainView === _SubViews.msg_client_side"></app-client-side>
 
         <app-ads *ngIf="currentMainView === _MainViews.ads || currentMainView === _SubViews.ads_new"></app-ads>
         <app-ads-all *ngIf="currentMainView === _SubViews.ads_all"></app-ads-all>
+
+        <app-archive *ngIf="currentMainView === _MainViews.archive"></app-archive>
+
+        <app-settings *ngIf="currentMainView === _MainViews.settings || currentMainView === _SubViews.set_general"></app-settings>
+        <app-settings-permalink  *ngIf="currentMainView === _SubViews.set_permalink"></app-settings-permalink>
+        <app-settings-privacy *ngIf="currentMainView === _SubViews.set_privacy"></app-settings-privacy>
   
       </div>
   

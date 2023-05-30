@@ -1,0 +1,80 @@
+<div class="set-perm-container">
+
+    <div class="main-title">Permalink Settings</div>
+
+    <div class="container">
+
+        <div class="radio-btn-area">
+
+            <div *ngFor="let category of timecategories" class="field-checkbox">
+
+                <p-radioButton [inputId]="category.key" name="category" [value]="category"></p-radioButton>
+
+                <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+
+            </div>
+
+        </div>
+
+        <div class="link-area">
+
+            <label>https://www.dreamstakes.com/?p=123</label>
+
+            <label>	https://www.dreamstakes.com/2022/10/27/sample-post/</label>
+
+            <label>	https://www.dreamstakes.com/2022/10/sample-post/</label>
+
+            <label>	https://www.dreamstakes.com/2022/10/27/sample-post/</label>
+
+            <label>	https://www.dreamstakes.com/archives/123</label>
+
+            <div style="margin-bottom: 15px;">
+
+                <label>https://www.dreamstakes.com/</label>
+
+                <input type="text" size="30" pInputText>
+
+            </div>
+
+            <div class="tag-area">       
+
+                <div class="title">Available tags:</div>
+
+                <div class="tags">
+                        
+                    <label>%year%</label>
+
+                    <label>%monthnum%</label>
+
+                    <label>%day%</label>
+
+                    <label>%hour%</label>
+
+                    <label>%minute%</label>
+
+                    <label>%second%</label>
+
+                    <label>%post_id%</label>
+
+                    <label>%postname%</label>
+
+                    <label>%category%</label>
+
+                    <label>%author%</label>
+
+                </div>
+
+            </div>
+
+            
+        </div>
+
+    </div>
+
+    <div class="btn-area">
+
+        <button>Save Changes</button>
+        
+    </div>
+
+</div>

@@ -1,0 +1,280 @@
+<div class="settings-container">
+
+    <div class="title">General Settings</div>
+
+    <div class="input-area1">
+
+        <div class="input-titles">
+
+            <div class="site-title">Site Title</div>
+
+            <div class="ad-email">Administration Email Address</div>
+
+            <div class="img">Carousal Bill Board Image 1</div>
+
+            <div class="home-title1">Home Title 1</div>
+
+
+        </div>
+
+        <div class="inputs">
+
+            <div class="site-title">
+
+                <input type="text" size="30" pInputText>
+
+            </div>
+
+            <div class="ad-email">
+
+                <input type="text" size="30" pInputText>
+
+                <div class="sub-text">This address is used for admin purposes. If you change this, an email will be sent to your new address to confirm it. <b>The new address will not become active until confirmed.</b></div>
+
+            </div>
+
+            <div class="img">
+
+                <div class="upload-btn">
+
+                    <label for="upload"><img [src]="image"/></label>
+    
+                    <input
+                    type="file"
+                    (change)="updateBoardImage1($event)"
+                    style="display: none"
+                    accept="image/*"
+                    id="upload"
+                    hidden
+                    #selectImage
+                    />                                                          
+                                    
+                </div>
+
+            </div>
+
+            <div class="home-title1">
+
+                <input type="text" size="30" pInputText>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="input-area2">
+
+        <div class="input-titles">
+            
+            <div class="home-title1-des">Home Title 1 (Description)</div>
+            
+        </div>
+
+        <div class="home-title1-des-box">
+
+            <p-editor [(ngModel)]="text" [style]="{'height':'252px'}"></p-editor>
+
+        </div>
+
+    </div>
+
+    <div class="input-area3">
+
+        <div class="input-titles">
+
+
+            <div class="img">Carousal Bill Board Image 2</div>
+
+            <div class="home-title1">Home Title 2</div>
+
+
+        </div>
+
+        <div class="inputs">
+
+            <div class="img">
+
+                <div class="upload-btn">
+
+                    <label for="upload2"><img [src]="image2"/></label>
+    
+                    <input
+                    type="file"
+                    (change)="updateBoardImage2($event)"
+                    style="display: none"
+                    accept="image/*"
+                    id="upload2"
+                    hidden
+                    #selectImage2
+                    />                                                          
+                                    
+                </div>
+
+            </div>
+
+            <div class="home-title1">
+
+                <input type="text" size="30" pInputText>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="input-area4">
+
+        <div class="input-titles">
+            
+            <div class="home-title1-des">Home Title 2 (Description)</div>
+            
+        </div>
+
+        <div class="home-title1-des-box">
+
+            <p-editor [(ngModel)]="text2" [style]="{'height':'252px'}"></p-editor>
+
+        </div>
+    </div>
+
+    <div class="input-area5">
+
+        <div class="input-titles">
+
+
+            <div class="img">Carousal Bill Board Image 2</div>
+
+            <div class="home-title1">Home Title 2</div>
+
+
+        </div>
+
+        <div class="inputs">
+
+            <div class="img">
+
+                <div class="upload-btn">
+
+                    <label for="upload3"><img [src]="image3"/></label>
+    
+                    <input
+                    type="file"
+                    (change)="updateBoardImage3($event)"
+                    style="display: none"
+                    accept="image/*"
+                    id="upload3"
+                    hidden
+                    #selectImage3
+                    />                                                          
+                                    
+                </div>
+
+            </div>
+
+            <div class="home-title1">
+
+                <input type="text" size="30" pInputText>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="input-area6">
+
+        <div class="input-titles">
+            
+            <div class="home-title1-des">Home Title 2 (Description)</div>
+            
+        </div>
+
+        <div class="home-title1-des-box">
+
+            <p-editor [(ngModel)]="text2" [style]="{'height':'252px'}"></p-editor>
+
+        </div>
+
+        <div class="add-section">
+            
+            <img src="./assets/settings/drop_img2.png">
+
+        </div>
+
+       
+
+    </div>
+
+    <div class="input-area7">
+
+        <div class="input-titles">
+
+            <div class="timezone">Timezone</div>
+
+            <div class="date-format">Date Format</div>
+
+            <div class="time-format">Time Format</div>
+
+            <div class="week-starts-on">Week Starts On</div>
+
+            <button>Save Changes</button>
+
+        </div>
+
+        <div class="inputs">
+            
+            <div class="timezone">
+
+                <p-dropdown [options]="TimrZone"></p-dropdown>
+
+                <div>Choose either a city in the same timezone as you or a UTC (Coordinated Universal Time) time offset.Universal time is <b>2022-10-27 04:47:08.</b></div>
+
+            </div>
+
+            <div class="date-format">
+                
+                <div *ngFor="let category of datecategories" class="field-checkbox">
+
+                    <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"></p-radioButton>
+
+                    <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+
+                    <div>
+
+                        <label [for]="category.key">{{ category.label}}</label>
+
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <div class="time-format"> 
+
+                <div *ngFor="let category of timecategories" class="field-checkbox">
+
+                    <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"></p-radioButton>
+
+                    <label [for]="category.key" class="ml-2">{{ category.name }}</label>
+
+                    <div>
+
+                        <label [for]="category.key">{{ category.label}}</label>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="week-starts-on">
+
+                <p-dropdown [options]="weekdays"></p-dropdown>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+

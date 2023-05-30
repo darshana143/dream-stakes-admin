@@ -39,6 +39,10 @@ import { CalendarModule } from 'primeng/calendar';
 import { ClientSideComponent } from './message/client-side/client-side.component';
 import { AdsComponent } from './ads/ads.component';
 import { AdsAllComponent } from './ads/ads-all/ads-all.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsPermalinkComponent } from './settings/settings-permalink/settings-permalink.component';
+import { SettingsPrivacyComponent } from './settings/settings-privacy/settings-privacy.component';
 
 
 
@@ -65,7 +69,11 @@ import { AdsAllComponent } from './ads/ads-all/ads-all.component';
     RightPanalComponent,
     ClientSideComponent,
     AdsComponent,
-    AdsAllComponent
+    AdsAllComponent,
+    ArchiveComponent,
+    SettingsComponent,
+    SettingsPermalinkComponent,
+    SettingsPrivacyComponent
   ],
   imports: [
     BrowserModule,

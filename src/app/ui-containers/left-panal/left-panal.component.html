@@ -113,6 +113,22 @@
             <label>Settings</label>
         </div>
 
+        <div class="main-btn-options" *ngIf="showSettingsOptions">
+            
+            <div id="24" class="option-btn opt-btn-select" (click)="userChangeView(_MainViews.settings, _SubViews.set_general)">
+                General
+            </div>
+
+            <div id="25" class="option-btn " (click)="userChangeView(_MainViews.settings, _SubViews.set_permalink)">
+                Permalink
+            </div>
+
+            <div  id="26" class="option-btn" (click)="userChangeView(_MainViews.settings, _SubViews.set_privacy)">
+                Privacy
+            </div>
+
+        </div>
+
     </div>
 
 

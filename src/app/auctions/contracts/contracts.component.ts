@@ -169,6 +169,12 @@ export class ContractsComponent implements OnInit {
     }
   ]
 
+  text:string;
+
+  defult: boolean = true;
+  addNew: boolean = false;
+  openEdit: boolean = false;
+
   constructor(private elem: ElementRef) {
 
     this.rowSelection = 'multiple';
@@ -186,6 +192,9 @@ export class ContractsComponent implements OnInit {
       draft: this.activeRowData.filter(aRow => aRow.Status === 'Draft').length,
       trash: this.activeRowData.filter(aRow => aRow.Status === 'Trash').length
     }
+
+    this.addNew = false;
+    this.openEdit = false;
 
   }
 
@@ -294,6 +303,13 @@ export class ContractsComponent implements OnInit {
 
     }
 
+  }
+
+  openNew(){
+
+    this.addNew = true;
+    // this.openEdit = true;
+    this.defult = false;
   }
 
 }
