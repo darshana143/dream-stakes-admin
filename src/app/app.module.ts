@@ -26,6 +26,8 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
 import { MessageComponent } from './message/message.component';
 import { MassMsgComponent } from './message/mass-msg/mass-msg.component'
 
+
+
 // ------------------------- PrimeNG -----------------------------
 import {InputTextModule} from 'primeng/inputtext';
 import {ChartModule} from 'primeng/chart';
@@ -43,9 +45,6 @@ import { ArchiveComponent } from './archive/archive.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SettingsPermalinkComponent } from './settings/settings-permalink/settings-permalink.component';
 import { SettingsPrivacyComponent } from './settings/settings-privacy/settings-privacy.component';
-
-
-
 
 
 @NgModule({

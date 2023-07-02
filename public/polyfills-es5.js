@@ -18828,18 +18828,19 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
     /***************************************************************************************************
      * Zone JS is required by default for Angular itself.
      */
-    // Included with Angular CLI.
+
+
+    window.global = window; // Included with Angular CLI.
 
     /***************************************************************************************************
      * APPLICATION IMPORTS
      */
 
     /***/
-
   },
 
   /***/
-  1:
+  2:
   /*!****************************************************************************************************************************************************!*\
     !*** multi ./node_modules/@angular-devkit/build-angular/src/angular-cli-files/models/es5-polyfills.js zone.js/dist/zone-legacy ./src/polyfills.ts ***!
     \****************************************************************************************************************************************************/
@@ -18861,5 +18862,5 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
     "./src/polyfills.ts");
     /***/
   }
-}, [[1, "runtime"]]]);
+}, [[2, "runtime"]]]);
 //# sourceMappingURL=polyfills-es5.js.map

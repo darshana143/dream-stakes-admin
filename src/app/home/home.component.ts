@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminMainViews, AdminSubViews } from '../app.types';
 import { Interconnect } from 'ng-interconnect';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   _MainViews = AdminMainViews;
   _SubViews = AdminSubViews;
 
-  constructor(private interconnect: Interconnect) { }
+  constructor(private interconnect: Interconnect, private chat: ChatService) { }
 
   ngOnInit(): void {
 
@@ -23,6 +24,8 @@ export class HomeComponent implements OnInit {
 			this.currentMainView = command.subView || command.mainView;
 			
 		});
+
+    this.chat.join();
    
   }
 

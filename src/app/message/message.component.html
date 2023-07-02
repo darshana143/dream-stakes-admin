@@ -1,4 +1,4 @@
-<div class="msg-container">
+<div class="main-msg-container">
 
     <div class="content">
 
@@ -29,104 +29,125 @@
 
             <div class="messages">
 
-                <app-notification></app-notification>
+                <div class="notify-container" *ngFor="let notificationItem of messages; let i = index;" (click)="openbox(i); notificationItem.msgCount = 0; notificationItem.isRead = false;">
+
+                    <div class="notification-image">
+                
+                        <img [src]="notificationItem.userImage">
+                
+                    </div>
+                
+                    <div class="notification-info">
+                
+                        <div class="text">
+                
+                            <div class="name">{{notificationItem.username}}</div> 
+                
+                            <div class="message">{{notificationItem.msgs.length ? notificationItem.msgs[notificationItem.msgs.length - 1].msg : '...'}}</div>
+                
+                        </div>
+                
+                        <div class="msg-count">
+                            <div class="time" *ngIf="notificationItem.msgs.length">{{notificationItem.msgs[notificationItem.msgs.length - 1].datetime}}</div>
+                            <div *ngIf="!notificationItem.isRead && notificationItem.msgCount" class="count">{{notificationItem.msgCount}}</div>
+                        </div>
+                
+                    </div>
+                    
+                
+                </div>
                 
             </div>
+
         </div>
 
-        <div class="message-area">
+        <ng-container *ngFor="let notificationItem of messages; let i = index">
 
-            <div class="title-area">
+            <div class="message-area" *ngIf="currentItem == i">
 
-                <div>
-                    <img src="./assets/profilepic.png">
-                </div>
+                <div class="title-area">
 
-                <div>
-                    
-                    <div class="title">William Fancyson</div>
+                    <div>
+                        <img [src]="notificationItem.userImage">
+                    </div>
 
-                    <div class="status">
-
-                        <img src="./assets/message/Online_status.png" style="height: 16px; width: 16px; margin-right: 0px;">
+                    <div>
                         
-                        Online
-                        
+                        <div class="title">{{notificationItem.username}}</div>
+
+                        <div class="status">
+
+                            <img src="./assets/message/Online_status.png" style="height: 16px; width: 16px; margin-right: 0px;">
+                            
+                            Online
+                            
+                        </div>
+
+
                     </div>
 
 
                 </div>
 
-
-            </div>
-
-            <div class="messages">
-
-                <div class="msg-container">
-
-                    <div class="in-msg">By the way, can you please show me the preview of your new product?</div>
-
-                    <div class="time">12:46 PM</div>
+                <div class="messages" #one>
                     
                 </div>
 
-                <div class="msg-container">
+                <div class="input-area">
 
-                    <div class="out-msg-container">
+                    <input (keyup.enter)="sendMessage()" id="m"  [(ngModel)]="text" placeholder="Type a messages…" autocomplete="off" required />
 
-                        <div class="out-msg">
+                    <div class="image-priview-area" *ngIf="imageContents.length">
 
-                                
-                            <div style="margin-bottom: 5px;"> Sure 😃</div>
+                        <div class="image-priview-container" *ngFor="let imageContent of imageContents; let i = index;" >
 
-                            <img src="./assets/message/cat.png">
+                            <img [src]="imageContent"/>
 
-                            <img src="./assets/message/bird.png">
+                            <i class="pi pi-times-circle" (click)="removeImage(i)"></i>
 
                         </div>
 
                     </div>
 
-                    <div class="time-out">12:46 PM
-                        <img src="./assets/message/Checkmark _Double.png" style="width: 16.67px; height: 10.83px;">
+                    <div class="btn-area">
+                       
+                        <div class="upload">
+
+                            <div class="icon1">
+        
+                                <label for="img"><img src="./assets/message/Add.png"></label>
+                                <input (change)="updateImage($event)" style="height: 0px;" type="file" id="img" name="img" accept="image/*">
+            
+                            </div>
+            
+                            <div class="icon2">
+            
+                                <img src="./assets/message/Add2.png">
+            
+                            </div>
+
+                        </div>
+
+
+                        <div class="send">
+
+                            <button (click)="sendMessage()">
+                        
+                                <img src="./assets/message/Icon _send.png" alt="">
+            
+                            </button>
+
+                        </div>
+
+
                     </div>
 
                 </div>
 
-                <div class="msg-container">
-
-                    <div class="in-msg">Yeah, your iconset are very awesome and usefull for my web app. Great job! 👏🏽.</div>
-
-                    <div class="time">12:46 PM</div>
-
-                </div>
             </div>
 
-            <div>
+        </ng-container>
 
-                <input id="m" placeholder="Type a messages…" autocomplete="off" required />
-
-                <button>
-                    
-                    <img src="./assets/message/Icon _send.png" alt="">
-
-                </button>
-
-                <div class="icon1">
-
-                    <img src="./assets/message/Add.png">
-
-                </div>
-
-                <div class="icon2">
-
-                    <img src="./assets/message/Add2.png">
-
-                </div>
-
-            </div>
-
-        </div>
         
     </div>
 
