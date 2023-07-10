@@ -97,13 +97,21 @@
 
                     <input (keyup.enter)="sendMessage()" id="m"  [(ngModel)]="text" placeholder="Type a messages…" autocomplete="off" required />
 
-                    <div class="image-priview-area" *ngIf="imageContents.length">
+                    <div class="image-priview-area" *ngIf="uplodedFileContents.length">
 
-                        <div class="image-priview-container" *ngFor="let imageContent of imageContents; let i = index;" >
+                        <div class="image-priview-container" *ngFor="let imageContent of uplodedFileContents; let i = index;" >
 
-                            <img [src]="imageContent"/>
+                            <div class="image-area">
+                                
+                                <img [src]="imageContent.src"/>
 
-                            <i class="pi pi-times-circle" (click)="removeImage(i)"></i>
+                                <i class="pi pi-times-circle" (click)="removeImage(i)"></i>
+
+                            </div>
+
+                            <div class="file-name">{{imageContent.name}}</div>
+
+                            
 
                         </div>
 
@@ -116,7 +124,7 @@
                             <div class="icon1">
         
                                 <label for="img"><img src="./assets/message/Add.png"></label>
-                                <input (change)="updateImage($event)" style="height: 0px;" type="file" id="img" name="img" accept="image/*">
+                                <input (change)="uploadFile($event)" style="height: 0px;" type="file" id="img" name="img">
             
                             </div>
             

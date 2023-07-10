@@ -10,7 +10,7 @@ import { ChatService } from '../chat.service';
 })
 export class HomeComponent implements OnInit {
 
-  currentMainView: number = AdminMainViews.overview;
+  currentMainView: number = AdminMainViews.message;
   _MainViews = AdminMainViews;
   _SubViews = AdminSubViews;
 

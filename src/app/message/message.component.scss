@@ -370,38 +370,58 @@
                 .image-priview-area{
     
                     display: -webkit-inline-box;
-                    height: 80px;
+                    height: 82px;
                     width: 100%;
                     overflow: auto;
                     padding: 5px;
-                    padding-top: 15px;
-                   
+                    
                     .image-priview-container{
 
                         display: flex;
+                        flex-direction: column;
                         height: 100%;
                         width: 65px;
                         margin-right: 10px;
                         
+                        .image-area{
+
+                            display: flex;
+                            flex-direction: row;
+                            
+
+                            img{
+
+                                height: 50px;
+                                width: 50px;
+                                border-radius: 10px;
+    
+                            }
+    
+    
+                            i{
+                                
+                                font-size: 12px;
+                            }
+
+
+                        }
+
+                        .file-name{
+
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 50px;
+                            font-family: 'Rubik';
+                            font-style: normal;
+                            font-weight: 400;
+                            font-size: 10px;
+                            line-height: 12px;
+
+
+                        }
+
                         
-                        // background-color: #F9A369;
-
-                        img{
-
-                            height: 100%;
-                            width: 100%;
-                            border-radius: 15px;
-                           
-
-                        }
-
-
-                        i{
-                            position: relative;
-                            left: -4px;
-                            top: -3px;
-                            font-size: 12px;
-                        }
 
                     }
 
