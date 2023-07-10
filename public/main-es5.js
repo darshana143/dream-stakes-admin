@@ -4771,7 +4771,7 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
         this.username = "admin";
         this.connectedUsers = []; // https://chat-system-4hbl.onrender.com/
 
-        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()('http://localhost:8081', {
+        this.socket = socket_io_client__WEBPACK_IMPORTED_MODULE_2___default()('https://chat-system-4hbl.onrender.com/', {
           withCredentials: true,
           allowEIO3: false,
           extraHeaders: {
