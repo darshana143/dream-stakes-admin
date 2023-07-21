@@ -15,7 +15,7 @@ export class MessageComponent implements OnInit {
 
   image: string | SafeUrl ;
 
-  @ViewChild('one', { static: false }) d1: ElementRef;
+  @ViewChild('one', { static: false }) div1: ElementRef;
 
   uplodedFileContents = [];
   sendFileDetails = [];
@@ -42,7 +42,9 @@ export class MessageComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     this.chatservice.socket.on('connected-users', (userData) => {
+
 
       let userAvailable = this.messages.some(msgObj => msgObj.username.toLowerCase() === userData.username.toLowerCase());
 
@@ -77,7 +79,7 @@ export class MessageComponent implements OnInit {
           {
             username,
             userID,
-            msgs: [{type:'in',msg, datetime}],
+            msgs: [{type:'in',msg, datetime,display:msg}],
             isRead: false,
             msgCount: 1,
             userImage: './assets/notification-image4.png'
@@ -89,13 +91,13 @@ export class MessageComponent implements OnInit {
 
       else{
 
-       this.messages[index].msgs.push({type:'in',msg, datetime});
+       this.messages[index].msgs.push({type:'in',msg, datetime,display:msg});
        this.messages[index].isRead = false;
        this.messages[index].msgCount++;
 
       }
 
-      console.log(this.messages)
+      // console.log(this.messages)
 
       this.openbox(this.currentItem);
 
@@ -104,10 +106,12 @@ export class MessageComponent implements OnInit {
     
 
     this.chatservice.socket.on('send-img', (data) => {
-     
+
       var username = data.senderName;
       var userID = data.userID; 
-      var msg = data.msg;
+      var msg = data.content;
+      var src = data.src;
+      var name = data.name;
       var datetime = data.datetime;
 
       var index = this.messages.findIndex(el => el.userID === userID);
@@ -119,7 +123,7 @@ export class MessageComponent implements OnInit {
           {
             username,
             userID,
-            msgs: [{type:'in',msg: {dataType: "img", data: msg}, datetime}],
+            msgs: [{type:'in',msg: {dataType: "img", content: msg, src:src, name:name}, datetime,display:"File uploaded"}],
             isRead: false,
             msgCount: 1,
             userImage: './assets/notification-image4.png'
@@ -131,7 +135,7 @@ export class MessageComponent implements OnInit {
 
       else{
 
-       this.messages[index].msgs.push({type:'in',msg: {dataType: "img", data: msg}, datetime});
+       this.messages[index].msgs.push({type:'in',msg: {dataType: "img", content: msg, src:src,name:name}, datetime, display:"File uploaded"});
        this.messages[index].isRead = false;
        this.messages[index].msgCount++
 
@@ -151,8 +155,8 @@ export class MessageComponent implements OnInit {
     const mgsContainer: HTMLElement = this.renderer.createElement('div');
     mgsContainer.className = "msg-container";
     mgsContainer.style.justifyContent = "flex-end";
-    const d2: HTMLElement = this.renderer.createElement('div');
-    d2.className = "out-msg";
+    const div2: HTMLElement = this.renderer.createElement('div');
+    div2.className = "out-msg";
 
     if(this.text){
 
@@ -193,9 +197,9 @@ export class MessageComponent implements OnInit {
       this.chatservice.socket.emit('chat message', {username: this.notificationItem.username, msg});
     
      
-      d2.innerText = msg;
-      mgsContainer.appendChild(d2);
-      this.d1.nativeElement.appendChild(mgsContainer);
+      div2.innerText = msg;
+      mgsContainer.appendChild(div2);
+      this.div1.nativeElement.appendChild(mgsContainer);
       this.text = '';
 
     }
@@ -212,65 +216,97 @@ export class MessageComponent implements OnInit {
 
       for( let i= 0; i < this.sendFileDetails.length; i++){
 
-        d2.style.flexDirection = "column";
+        div2.style.flexDirection = "column";
         const img: HTMLImageElement = this.renderer.createElement('img');
 
-        if(this.sendFileDetails[i].type === "data:text/plain"){
-
-          img.src = './assets/message/fileicon.png';
-          img.addEventListener("click", this.viewImage.bind(img));
-          const d3: HTMLElement = this.renderer.createElement('div');
-          d3.className = "file-name";
-          d3.innerText = this.sendFileDetails[i].name;
-          d2.appendChild(img);
-          d2.appendChild(d3);
-          mgsContainer.appendChild(d2);
-          this.d1.nativeElement.appendChild(mgsContainer);
-          this.chatservice.socket.emit('send-img',{username: this.notificationItem.username, msg: img.src, name:this.sendFileDetails[i].name});
-
-
-        }
-        
-        if(this.sendFileDetails[i].type === "data:image/jpeg" || this.sendFileDetails[i].type === "data:image/png"){
+        if(this.sendFileDetails[i].type.includes("image")){
 
           img.src = this.sendFileDetails[i].content;
-          img.addEventListener("click", this.viewImage.bind(img));
-          d2.appendChild(img);
-          mgsContainer.appendChild(d2);
-          this.d1.nativeElement.appendChild(mgsContainer);
-          this.chatservice.socket.emit('send-img',{username: this.notificationItem.username, msg: this.sendFileDetails[i].content, name:this.sendFileDetails[i].name});
-          var x ={username: this.notificationItem.username, msg: this.sendFileDetails[i].content, name:this.sendFileDetails[i].name}
-          console.log(x)
+          img.addEventListener("click", this.viewImage.bind(img)); //Image zooming
+          div2.appendChild(img);
+          mgsContainer.appendChild(div2);
+          this.div1.nativeElement.appendChild(mgsContainer);
+          this.chatservice.socket.emit('send-img',{username: this.notificationItem.username, content: this.sendFileDetails[i].content, src: this.sendFileDetails[i].content, name:this.sendFileDetails[i].name});
+          
 
+           //Update messages
+          if(index === -1){
+    
+            this.messages.push(
+      
+              {
+                username: this.notificationItem.username,
+                userID: recipiantID,
+                msgs: [{type:'out',msg: {dataType: "img", content: this.sendFileDetails[i].content, src:img.src, name:this.sendFileDetails[i].name}, datetime}],
+                isRead: true,
+                msgCount: 0,
+                userImage: './assets/notification-image4.png'
+              }
+      
+            )
+      
+          }
+      
+          else{
+      
+          this.messages[index].msgs.push({type:'out',msg: {dataType: "img", content: this.sendFileDetails[i].content, src:img.src, name:this.sendFileDetails[i].name}, datetime});
+          this.messages[index].isRead = true;
+          this.messages[index].msgCount = 0
+    
+          }
         }
-        
-        
-        //Update messages
-        if(index === -1){
-  
-          this.messages.push(
-    
-            {
-              username: this.notificationItem.username,
-              userID: recipiantID,
-              msgs: [{type:'out',msg: {dataType: "img", data: this.sendFileDetails[i].content}, datetime}],
-              isRead: true,
-              msgCount: 0,
-              userImage: './assets/notification-image4.png'
-            }
-    
-          )
-    
-        }
-    
+
         else{
-    
-         this.messages[index].msgs.push({type:'out',msg: {dataType: "img", data: this.sendFileDetails[i].content}, datetime});
-         this.messages[index].isRead = true;
-         this.messages[index].msgCount = 0
-  
-        }
 
+          var item = this.sendFileDetails[i];
+          img.src = './assets/message/fileicon.png';
+
+          //file downloading part
+          const icon: HTMLImageElement = this.renderer.createElement('img');
+          icon.className = "download-icon"
+          icon.src = './assets/message/download.png'
+          this.renderer.listen(icon, 'click', (event) => {
+            this.downloadFile(item)
+          });
+
+          const div3: HTMLElement = this.renderer.createElement('div');
+          div3.className = "file-name";
+          div3.innerText = this.sendFileDetails[i].name;
+          div3.appendChild(icon);
+          div2.appendChild(img);
+          div2.appendChild(div3);
+          mgsContainer.appendChild(div2);
+          this.div1.nativeElement.appendChild(mgsContainer);
+          this.chatservice.socket.emit('send-img',{username: this.notificationItem.username, content: this.sendFileDetails[i].content, src:img.src, name:this.sendFileDetails[i].name});
+        
+           //Update messages
+          if(index === -1){
+    
+            this.messages.push(
+      
+              {
+                username: this.notificationItem.username,
+                userID: recipiantID,
+                msgs: [{type:'out',msg: {dataType: "img", content: this.sendFileDetails[i].content, src:img.src, name:this.sendFileDetails[i].name}, datetime}],
+                isRead: true,
+                msgCount: 0,
+                userImage: './assets/notification-image4.png'
+              }
+      
+            )
+      
+          }
+      
+          else{
+      
+          this.messages[index].msgs.push({type:'out',msg: {dataType: "img", content: this.sendFileDetails[i].content, src:img.src, name:this.sendFileDetails[i].name}, datetime});
+          this.messages[index].isRead = true;
+          this.messages[index].msgCount = 0
+    
+          }
+
+        }
+        
        
       }
 
@@ -280,6 +316,7 @@ export class MessageComponent implements OnInit {
     }
 
   }
+  
 
   async uploadFile(ev) {
 
@@ -289,58 +326,47 @@ export class MessageComponent implements OnInit {
 
     var fileType = file.type;
     var fileName = file.name;
+
     // console.log(fileType)
-
-
-    switch (fileType) {
-
-      case "text/plain":
-
-        this.image = './assets/message/fileicon.png';
-        this.uplodedFileContents.push(
-          {src:this.image,
-          name:fileName.substring(0, 6)});
-          const fileObjTxt = await this.convertBase64(file);
-          var fileObjTxtWithName = Object.assign({},fileObjTxt,{name:fileName});
-          this.sendFileDetails.push(fileObjTxtWithName);
-          
-        break;
-
-      
-      case "image/jpeg":
-        
-        this.image = this.sanitizer.bypassSecurityTrustUrl(
-          window.URL.createObjectURL(file)
-        );
-        this.uplodedFileContents.push(
-          {src:this.image,
-          name:fileName.substring(0, 6)});
-          const fileObjImg = await this.convertBase64(file);
-          var fileObjImgWithName = Object.assign({},fileObjImg,{name:fileName});
-          this.sendFileDetails.push(fileObjImgWithName);
-          
-        break;
-
-
-      case "image/png":
-        
-        this.image = this.sanitizer.bypassSecurityTrustUrl(
-          window.URL.createObjectURL(file)
-        );
-        this.uplodedFileContents.push(
-          {src:this.image,
-          name:fileName.substring(0, 6)});
-          const fileObjImgPng = await this.convertBase64(file);
-          var fileObjImgWithName = Object.assign({},fileObjImgPng,{name:fileName});
-          this.sendFileDetails.push(fileObjImgWithName);
-          
-        break;
+  
     
+    if(fileType.includes("image")){
+
+      this.image = this.sanitizer.bypassSecurityTrustUrl(
+        window.URL.createObjectURL(file)
+      );
+
+      this.uplodedFileContents.push(
+        {src:this.image,
+        name:fileName.substring(0, 6)});
+
+      const fileObjImg = await this.convertBase64(file);
+
+      var fileObjImgWithName = Object.assign({},fileObjImg,{name:fileName});
+
+      this.sendFileDetails.push(fileObjImgWithName);
+        
     }
 
-    
-    
+    else{
+
+      this.image = './assets/message/fileicon.png';
+
+      this.uplodedFileContents.push(
+        {src:this.image,
+        name:fileName.substring(0, 6)});
+
+      const fileObjTxt = await this.convertBase64(file);
+
+      var fileObjTxtWithName = Object.assign({},fileObjTxt,{name:fileName});
+
+      this.sendFileDetails.push(fileObjTxtWithName);
+      
+
+    }
+
   }
+
 
   convertBase64 = (file) => {
 
@@ -364,6 +390,7 @@ export class MessageComponent implements OnInit {
     });
   };
 
+
   removeImage(idx){
 
     this.uplodedFileContents.splice(idx, 1);
@@ -371,12 +398,11 @@ export class MessageComponent implements OnInit {
 
   }
 
+
   openbox(i) {
     
-    this.d1.nativeElement.innerHTML = null;
-
+    this.div1.nativeElement.innerHTML = null;
     this.notificationItem = this.messages[i];
-
     this.currentItem = i;
    
 
@@ -386,60 +412,153 @@ export class MessageComponent implements OnInit {
     
     for(var index = 0; index < msgArray.length; index++){
 
+      //incomming messages
       if( msgArray[index].type === "in"){
 
         const mgsContainer: HTMLElement = this.renderer.createElement('div');
         mgsContainer.className = "msg-container";
         mgsContainer.style.justifyContent = "flex-start";
-        const d2: HTMLElement = this.renderer.createElement('div');
-        d2.className = "in-msg";
+        const div2: HTMLElement = this.renderer.createElement('div');
+        div2.className = "in-msg";
 
+        //files
         if(msgArray[index].msg.dataType){
 
-          d2.style.flexDirection = "column";
+          div2.style.flexDirection = "column";
           const img: HTMLImageElement = this.renderer.createElement('img');
-          img.src = msgArray[index].msg.data;
-          d2.appendChild(img);
-          mgsContainer.appendChild(d2);
-          this.d1.nativeElement.appendChild(mgsContainer);
+      
+
+          
+          //images
+          if(msgArray[index].msg.content.includes("image")){
+
+            img.src = msgArray[index].msg.src;
+            img.addEventListener("click", this.viewImage.bind(img)); //Image zooming
+            div2.appendChild(img);
+            mgsContainer.appendChild(div2);
+            this.div1.nativeElement.appendChild(mgsContainer);
+
+          }
+
+          //other files
+          else{
+
+            var item = msgArray[index].msg;
+            img.src = './assets/message/fileicon.png';
+            
+
+            //file downloading part
+            const icon: HTMLImageElement = this.renderer.createElement('img');
+            icon.className = "download-icon"
+            icon.src = './assets/message/download.png'
+            this.renderer.listen(icon, 'click', (event) => {
+              this.downloadFile(item)
+            });
+
+            const div3: HTMLElement = this.renderer.createElement('div');
+            div3.className = "file-name";
+            div3.innerText = msgArray[index].msg.name;
+            div3.appendChild(icon);
+            div2.appendChild(img);
+            div2.appendChild(div3);
+            mgsContainer.appendChild(div2);
+            this.div1.nativeElement.appendChild(mgsContainer);
+
+          }
 
         }
+
+        //text messages
         else{
 
           this.text2 = msgArray[index].msg;
-          d2.innerText = this.text2
-          mgsContainer.appendChild(d2);
-          this.d1.nativeElement.appendChild(mgsContainer);
+          div2.innerText = this.text2
+          mgsContainer.appendChild(div2);
+          this.div1.nativeElement.appendChild(mgsContainer);
 
         }
 
 
       }
 
+      //outgoing messages
       else{
 
         const mgsContainer: HTMLElement = this.renderer.createElement('div');
         mgsContainer.className = "msg-container";
         mgsContainer.style.justifyContent = "flex-end";
-        const d2: HTMLElement = this.renderer.createElement('div');
-        d2.className = "out-msg";
+        const div2: HTMLElement = this.renderer.createElement('div');
+        div2.className = "out-msg";
 
+        //files
         if(msgArray[index].msg.dataType){
 
-          d2.style.flexDirection = "column";
+          div2.style.flexDirection = "column";
           const img: HTMLImageElement = this.renderer.createElement('img');
-          img.src = msgArray[index].msg.data;
-          d2.appendChild(img);
-          mgsContainer.appendChild(d2);
-          this.d1.nativeElement.appendChild(mgsContainer);
+
+          //files
+        if(msgArray[index].msg.dataType){
+
+          div2.style.flexDirection = "column";
+          const img: HTMLImageElement = this.renderer.createElement('img');
+          
+          //images
+          if(msgArray[index].msg.content.includes("image")){
+
+            img.src = msgArray[index].msg.src;
+            img.addEventListener("click", this.viewImage.bind(img)); //Image zooming
+            div2.appendChild(img);
+            mgsContainer.appendChild(div2);
+            this.div1.nativeElement.appendChild(mgsContainer);
+
+          }
+
+          //other files
+          else{
+
+            var item = msgArray[index].msg;
+            img.src = './assets/message/fileicon.png';
+
+            // console.log(msgArray[index].msg)
+
+            //file downloading part
+            const icon: HTMLImageElement = this.renderer.createElement('img');
+            icon.className = "download-icon"
+            icon.src = './assets/message/download.png'
+            this.renderer.listen(icon, 'click', (event) => {
+              this.downloadFile(item)
+            });
+
+            const div3: HTMLElement = this.renderer.createElement('div');
+            div3.className = "file-name";
+            div3.innerText = msgArray[index].msg.name;
+            div3.appendChild(icon);
+            div2.appendChild(img);
+            div2.appendChild(div3);
+            mgsContainer.appendChild(div2);
+            this.div1.nativeElement.appendChild(mgsContainer);
+
+          }
 
         }
         else{
 
           this.text2 = msgArray[index].msg;
-          d2.innerText = this.text2
-          mgsContainer.appendChild(d2);
-          this.d1.nativeElement.appendChild(mgsContainer);
+          div2.innerText = this.text2
+          mgsContainer.appendChild(div2);
+          this.div1.nativeElement.appendChild(mgsContainer);
+
+        }
+
+        }
+
+        //text messages
+        else{
+
+          this.text2 = msgArray[index].msg;
+          div2.innerText = this.text2
+          mgsContainer.appendChild(div2);
+          this.div1.nativeElement.appendChild(mgsContainer);
 
         }
 
@@ -452,27 +571,47 @@ export class MessageComponent implements OnInit {
    
   }
 
-  viewImage(event) {
 
-    // console.log(event.currentTarget)
+  viewImage(event) {
 
     let viewer = new Viewer(event.currentTarget, {
       navbar: false,
       toolbar: false,
       viewed() {
 
-        viewer.zoomTo(0.1);
+        viewer.zoomTo(1);
         viewer['image'].style.border = '10px solid white';
         viewer['image'].style['border-radius'] = '10px';
 
       }
-      //   viewed() {
-      //     viewer.zoomTo(1);
-
+     
     });
 
     viewer.show();
   }
+
+
+  async downloadFile(data){
+
+    var base64 = data.content;
+    var name = data.name;
+
+    var base64Response = await fetch(base64)
+    
+    const blob = await base64Response.blob();
+
+    
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    // the filename
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+   
+  }   
 
 }
 

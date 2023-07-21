@@ -29,6 +29,9 @@ export class ChatService {
   public join(){
   
     this.socket.emit('joining msg', this.username, this.callBack);
+    // this.socket.broadcast.emit('admininfo', {username:this.username,id:this.adminChatID})
+    
+    
 
   }
 
@@ -38,7 +41,8 @@ export class ChatService {
 
   private callBack(id){
     this.adminChatID = id;
-    console.log(this.adminChatID)
+    console.log(this.adminChatID);
+    
   }
   
 }
